@@ -1,0 +1,3 @@
+@echo off
+echo Opening Leul Dereje website in Microsoft Edge...
+start msedge "http://localhost:3000"
