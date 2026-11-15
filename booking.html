@@ -19,38 +19,38 @@
     }
     ::-webkit-scrollbar { display: none; }
     .glass-card {
-      background: rgba(18, 19, 22, 0.45);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      background: rgba(12, 13, 16, 0.20);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.20);
     }
     .glass-subcard {
-      background: rgba(255, 255, 255, 0.035);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.10);
       transition: all 0.3s ease;
     }
     .glass-subcard:hover {
-      background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(208, 188, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(208, 188, 255, 0.45);
       transform: translateY(-2px);
     }
     .glass-input {
-      background: rgba(8, 9, 11, 0.55);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      color: #e3e2e6;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
       transition: all 0.25s ease;
     }
     .glass-input:focus {
-      background: rgba(8, 9, 11, 0.75);
-      border-color: rgba(208, 188, 255, 0.75);
-      box-shadow: 0 0 0 3px rgba(208, 188, 255, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.45);
+      border-color: rgba(208, 188, 255, 0.85);
+      box-shadow: 0 0 0 3px rgba(208, 188, 255, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.25);
     }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -164,52 +164,29 @@
 </head>
 <body class="bg-[#0e0f12] font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden">
   
-  <!-- WHOLE-PAGE FIXED BACKGROUND: LEUL DEREJE PORTRAIT & ATMOSPHERIC LIGHTING -->
+  <!-- WHOLE-PAGE FULL-BLEED FIXED BACKGROUND: LEUL DEREJE PORTRAIT -->
   <div class="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
     
-    <!-- Base Deep Tone -->
+    <!-- Base Background Color -->
     <div class="absolute inset-0 bg-[#0e0f12]"></div>
 
-    <!-- Atmospheric Blurred Portrait Ambient Lighting -->
-    <div class="absolute inset-0 opacity-20">
-      <img src="assets/images/leul-dereje-consultation.jpg" alt="" class="w-full h-full object-cover object-center filter blur-3xl transform scale-110">
-    </div>
+    <!-- The Picture Fits the Whole Page Across All Screen Sizes -->
+    <img src="assets/images/leul-dereje-consultation.jpg" 
+         alt="Leul Dereje Real Estate Consultant" 
+         class="w-full h-full object-cover object-[center_18%] filter brightness-[0.88] contrast-[1.05]">
 
-    <!-- Mobile/Tablet View (Portrait Orientation): Full-Bleed Portrait Centered on Leul's Face -->
-    <div class="block lg:hidden absolute inset-0">
-      <img src="assets/images/leul-dereje-consultation.jpg" 
-           alt="Leul Dereje Real Estate Consultant" 
-           class="w-full h-full object-cover object-[center_12%] filter brightness-[0.70] contrast-[1.08]">
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0e0f12]/85 via-[#0e0f12]/60 to-[#0e0f12]/95"></div>
-    </div>
+    <!-- Subtle Tint Overlays for Elegant Contrast & Text Clarity -->
+    <div class="absolute inset-0 bg-black/35"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0e0f12]/95 via-transparent to-[#0e0f12]/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0e0f12]/30 via-transparent to-[#0e0f12]/30"></div>
 
-    <!-- Desktop View (Widescreen): Sharp, Uncropped Portrait of Leul Dereje Positioned Elegantly on Right Side -->
-    <div class="hidden lg:flex absolute inset-0 items-center justify-end pr-[4vw] xl:pr-[7vw]">
-      <div class="relative h-[96vh] w-auto max-w-[750px] flex items-center justify-center">
-        <!-- Crisp High-Resolution Portrait -->
-        <img src="assets/images/leul-dereje-consultation.jpg" 
-             alt="Leul Dereje Real Estate Strategist" 
-             class="h-full w-auto object-contain filter brightness-[0.84] contrast-[1.06] drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
-        
-        <!-- Soft Seamless Feathering Gradients around the Portrait so edges melt naturally -->
-        <div class="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#0e0f12] via-[#0e0f12]/70 to-transparent"></div>
-        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0e0f12]/60 to-transparent"></div>
-        <div class="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#0e0f12] via-[#0e0f12]/70 to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0e0f12] via-[#0e0f12]/85 to-transparent"></div>
-      </div>
-    </div>
-
-    <!-- Global Vignette & Contrast Control to ensure 100% Text Legibility -->
-    <div class="absolute inset-0 bg-[#0e0f12]/40 backdrop-blur-[0.5px]"></div>
-    <div class="absolute inset-0" style="background: radial-gradient(circle at 75% 35%, transparent 15%, rgba(14,15,18,0.7) 65%, rgba(14,15,18,0.95) 100%);"></div>
-
-    <!-- Luxury Ambient Rim Flares -->
-    <div class="absolute -top-32 left-1/4 w-[650px] h-[500px] bg-primary/10 rounded-full blur-[160px]"></div>
-    <div class="absolute bottom-12 right-12 w-[550px] h-[500px] bg-secondary/10 rounded-full blur-[160px]"></div>
+    <!-- Atmospheric Ambient Glows -->
+    <div class="absolute -top-32 left-1/4 w-[600px] h-[450px] bg-primary/10 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-12 right-12 w-[500px] h-[450px] bg-secondary/10 rounded-full blur-[140px]"></div>
   </div>
 
   <!-- HEADER NAVIGATION (GLASSY FROSTED) -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
     <div class="h-20 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-md">
       <div class="flex items-center gap-space-md">
         <a class="flex flex-col group" data-path="home" href="index.html">
@@ -525,7 +502,7 @@
   </main>
 
   <!-- FOOTER (GLASSY FROSTED) -->
-  <footer class="w-full bg-black/50 backdrop-blur-2xl text-on-surface-variant border-t border-white/10 relative z-10">
+  <footer class="w-full bg-black/35 backdrop-blur-xl text-on-surface-variant border-t border-white/10 relative z-10">
     <div class="max-w-[1360px] mx-auto px-margin py-space-xl flex flex-col gap-space-xl">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
         <div class="md:col-span-5 flex flex-col gap-space-sm">
