@@ -18,6 +18,33 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
+  // Handle Consultation API
+  if (req.method === 'POST' && req.url === '/api/consultation') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      try {
+        const data = JSON.parse(body);
+        console.log('====================================================');
+        console.log('📬 NEW CONSULTATION REQUEST RECEIVED');
+        console.log('Principal Name :', data.name);
+        console.log('Phone / WhatsApp:', data.phone);
+        console.log('Email           :', data.email);
+        console.log('Advisory Scope  :', data.scope);
+        console.log('Consultation Summary:');
+        console.log(data.summary);
+        console.log('====================================================');
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, message: 'Consultation request received successfully' }));
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: 'Invalid JSON format' }));
+      }
+    });
+    return;
+  }
+
   let reqPath = decodeURI(req.url.split('?')[0]);
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';
