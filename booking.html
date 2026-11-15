@@ -164,25 +164,23 @@
 </head>
 <body class="bg-[#0e0f12] font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden">
   
-  <!-- WHOLE-PAGE FULL-BLEED FIXED BACKGROUND: LEUL DEREJE PORTRAIT -->
-  <div class="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+  <!-- WHOLE-PAGE FIXED BACKGROUND: LEUL DEREJE PORTRAIT (ENTIRE PICTURE VISIBLE & FITS PAGE) -->
+  <div class="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden flex items-center justify-center bg-[#0e0f12]" aria-hidden="true">
     
-    <!-- Base Background Color -->
-    <div class="absolute inset-0 bg-[#0e0f12]"></div>
+    <!-- Atmospheric Ambient Fill to softly feather into edges -->
+    <img src="assets/images/leul-dereje-consultation.jpg" 
+         alt="" 
+         class="absolute inset-0 w-full h-full object-cover filter blur-3xl opacity-20 scale-110">
 
-    <!-- The Picture Fits the Whole Page Across All Screen Sizes -->
+    <!-- The Entire Photo is 100% Visible & Fits the Page Without Zoom or Cropping -->
     <img src="assets/images/leul-dereje-consultation.jpg" 
          alt="Leul Dereje Real Estate Consultant" 
-         class="w-full h-full object-cover object-[center_18%] filter brightness-[0.88] contrast-[1.05]">
+         class="relative z-10 w-full h-full object-contain object-center filter brightness-[0.95] contrast-[1.05]">
 
-    <!-- Subtle Tint Overlays for Elegant Contrast & Text Clarity -->
-    <div class="absolute inset-0 bg-black/35"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0e0f12]/95 via-transparent to-[#0e0f12]/60"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0e0f12]/30 via-transparent to-[#0e0f12]/30"></div>
-
-    <!-- Atmospheric Ambient Glows -->
-    <div class="absolute -top-32 left-1/4 w-[600px] h-[450px] bg-primary/10 rounded-full blur-[140px]"></div>
-    <div class="absolute bottom-12 right-12 w-[500px] h-[450px] bg-secondary/10 rounded-full blur-[140px]"></div>
+    <!-- Soft Ambient Vignette for Elegant Contrast -->
+    <div class="absolute inset-0 z-20 bg-black/25"></div>
+    <div class="absolute inset-0 z-20 bg-gradient-to-t from-[#0e0f12]/90 via-transparent to-[#0e0f12]/50"></div>
+    <div class="absolute inset-0 z-20 bg-gradient-to-r from-[#0e0f12]/50 via-transparent to-[#0e0f12]/50"></div>
   </div>
 
   <!-- HEADER NAVIGATION (GLASSY FROSTED) -->
@@ -355,10 +353,6 @@
           <div class="flex flex-col gap-1 pb-4 border-b border-white/10 mb-6">
             <div class="flex items-center justify-between">
               <span class="font-label-sm uppercase tracking-wider text-primary font-bold">Confidential Intake</span>
-              <span class="flex items-center gap-1.5 text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Executive Desk Active
-              </span>
             </div>
             <h2 class="font-headline-md text-headline-md text-on-surface mt-1">Submit Your Consultation Brief</h2>
             <p class="font-body-sm text-on-surface-variant">
@@ -525,7 +519,7 @@
         <div class="md:col-span-4 flex flex-col gap-space-xs">
           <span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Direct Inquiries</span>
           <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
-            <p><span class="text-on-surface font-medium">Tel:</span> +251 911 74 94 99 / +251 913 58 07 87</p>
+            <p><span class="text-on-surface font-medium">Tel:</span> +251 911 74 94 99</p>
             <p><span class="text-on-surface font-medium">Email:</span> leul.der@gmail.com</p>
             <p class="font-label-sm text-label-sm text-primary tracking-wide pt-space-xs uppercase">Available via Secure Line &amp; Private Consultation</p>
           </div>
