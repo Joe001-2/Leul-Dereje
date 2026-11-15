@@ -1,0 +1,19 @@
+{
+  "name": "leul-dereje-real-estate",
+  "version": "1.0.0",
+  "description": "Leul Dereje Real Estate Strategist & Consultant website - Electric Glass Modern Nocturne Luminary design system.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "real-estate",
+    "glassmorphism",
+    "portfolio",
+    "tailwind"
+  ],
+  "author": "Leul Dereje",
+  "license": "ISC"
+}
+
