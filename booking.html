@@ -18,6 +18,40 @@
       main > :last-child { margin-bottom: 0 !important; }
     }
     ::-webkit-scrollbar { display: none; }
+    .glass-card {
+      background: rgba(18, 19, 22, 0.45);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    .glass-subcard {
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    .glass-subcard:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(208, 188, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .glass-input {
+      background: rgba(8, 9, 11, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: #e3e2e6;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+      transition: all 0.25s ease;
+    }
+    .glass-input:focus {
+      background: rgba(8, 9, 11, 0.75);
+      border-color: rgba(208, 188, 255, 0.75);
+      box-shadow: 0 0 0 3px rgba(208, 188, 255, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
@@ -128,10 +162,54 @@
     };
   </script>
 </head>
-<body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+<body class="bg-[#0e0f12] font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden">
   
-  <!-- HEADER NAVIGATION -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
+  <!-- WHOLE-PAGE FIXED BACKGROUND: LEUL DEREJE PORTRAIT & ATMOSPHERIC LIGHTING -->
+  <div class="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+    
+    <!-- Base Deep Tone -->
+    <div class="absolute inset-0 bg-[#0e0f12]"></div>
+
+    <!-- Atmospheric Blurred Portrait Ambient Lighting -->
+    <div class="absolute inset-0 opacity-20">
+      <img src="assets/images/leul-dereje-consultation.jpg" alt="" class="w-full h-full object-cover object-center filter blur-3xl transform scale-110">
+    </div>
+
+    <!-- Mobile/Tablet View (Portrait Orientation): Full-Bleed Portrait Centered on Leul's Face -->
+    <div class="block lg:hidden absolute inset-0">
+      <img src="assets/images/leul-dereje-consultation.jpg" 
+           alt="Leul Dereje Real Estate Consultant" 
+           class="w-full h-full object-cover object-[center_12%] filter brightness-[0.70] contrast-[1.08]">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0e0f12]/85 via-[#0e0f12]/60 to-[#0e0f12]/95"></div>
+    </div>
+
+    <!-- Desktop View (Widescreen): Sharp, Uncropped Portrait of Leul Dereje Positioned Elegantly on Right Side -->
+    <div class="hidden lg:flex absolute inset-0 items-center justify-end pr-[4vw] xl:pr-[7vw]">
+      <div class="relative h-[96vh] w-auto max-w-[750px] flex items-center justify-center">
+        <!-- Crisp High-Resolution Portrait -->
+        <img src="assets/images/leul-dereje-consultation.jpg" 
+             alt="Leul Dereje Real Estate Strategist" 
+             class="h-full w-auto object-contain filter brightness-[0.84] contrast-[1.06] drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
+        
+        <!-- Soft Seamless Feathering Gradients around the Portrait so edges melt naturally -->
+        <div class="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#0e0f12] via-[#0e0f12]/70 to-transparent"></div>
+        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0e0f12]/60 to-transparent"></div>
+        <div class="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#0e0f12] via-[#0e0f12]/70 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0e0f12] via-[#0e0f12]/85 to-transparent"></div>
+      </div>
+    </div>
+
+    <!-- Global Vignette & Contrast Control to ensure 100% Text Legibility -->
+    <div class="absolute inset-0 bg-[#0e0f12]/40 backdrop-blur-[0.5px]"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 75% 35%, transparent 15%, rgba(14,15,18,0.7) 65%, rgba(14,15,18,0.95) 100%);"></div>
+
+    <!-- Luxury Ambient Rim Flares -->
+    <div class="absolute -top-32 left-1/4 w-[650px] h-[500px] bg-primary/10 rounded-full blur-[160px]"></div>
+    <div class="absolute bottom-12 right-12 w-[550px] h-[500px] bg-secondary/10 rounded-full blur-[160px]"></div>
+  </div>
+
+  <!-- HEADER NAVIGATION (GLASSY FROSTED) -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
     <div class="h-20 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-md">
       <div class="flex items-center gap-space-md">
         <a class="flex flex-col group" data-path="home" href="index.html">
@@ -154,33 +232,14 @@
     </div>
   </header>
 
-  <main class="w-full pt-28 pb-space-xl bg-background min-h-screen">
-    <!-- Atmospheric Ambient Glows -->
+  <main class="relative z-10 w-full pt-28 pb-space-xl bg-transparent min-h-screen">
     <div class="relative w-full max-w-[1360px] mx-auto px-margin-mobile sm:px-margin">
-      <div class="absolute -top-10 left-1/4 w-[600px] h-[400px] bg-primary/15 rounded-full blur-[140px] pointer-events-none -z-0"></div>
-      <div class="absolute top-1/2 right-10 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none -z-0"></div>
 
-      <!-- HERO BANNER WITH LEUL DEREJE BACKGROUND PORTRAIT -->
-      <div class="relative z-10 w-full rounded-3xl overflow-hidden bg-surface-container-low border border-surface-variant/40 shadow-2xl mb-space-xl">
-        
-        <!-- Background Image with Custom Portrait Positioning and Responsive Gradient -->
-        <div class="absolute inset-0 pointer-events-none select-none">
-          <img src="assets/images/leul-dereje-consultation.jpg" alt="Leul Dereje Real Estate Consultant" class="w-full h-full object-cover object-[center_12%] sm:object-[right_18%] lg:object-[82%_18%] filter brightness-[0.85] contrast-[1.05]">
-          
-          <!-- Desktop Left-to-Right Dark Gradient for Crisp Text Legibility -->
-          <div class="absolute inset-0 bg-gradient-to-r from-background via-background/95 sm:via-background/85 lg:via-background/70 to-background/30 lg:to-transparent"></div>
-          
-          <!-- Bottom-to-Top Soft Dark Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
-          
-          <!-- Atmospheric Ambient Violet Rim Glow -->
-          <div class="absolute -top-16 left-1/4 w-[500px] h-[350px] bg-primary/20 rounded-full blur-[120px]"></div>
-        </div>
-
-        <!-- Content Layer -->
-        <div class="relative z-10 p-6 sm:p-10 lg:p-12 max-w-2xl flex flex-col items-start text-left">
+      <!-- GLASSY HERO BANNER -->
+      <div class="glass-card relative z-10 w-full rounded-3xl p-6 sm:p-10 lg:p-12 mb-space-xl">
+        <div class="max-w-2xl flex flex-col items-start text-left">
           <!-- Prestige Badge -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface/80 backdrop-blur-md border border-primary/30 text-primary mb-3.5 shadow-sm">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/20 text-primary mb-3.5 shadow-sm">
             <span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
             <span class="font-label-sm text-label-sm uppercase tracking-widest font-bold">Confidential Strategic Advisory</span>
           </div>
@@ -200,23 +259,22 @@
           <!-- Direct Instant Contact Bar -->
           <div class="flex flex-wrap items-center gap-2.5 sm:gap-3.5 font-body-md text-on-surface pt-6 w-full">
             <!-- WhatsApp Quick Link -->
-            <a href="https://wa.me/251911749499?text=Hello%20Leul%20Dereje,%20I%20would%20like%20to%20schedule%20a%20private%20real%20estate%20consultation." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/40 font-bold transition-all shadow-md group">
+            <a href="https://wa.me/251911749499?text=Hello%20Leul%20Dereje,%20I%20would%20like%20to%20schedule%20a%20private%20real%20estate%20consultation." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/40 backdrop-blur-md font-bold transition-all shadow-md group">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.18-.47-.3Z"/></svg>
               <span>Direct WhatsApp</span>
             </a>
             <!-- Email Quick Link -->
-            <a href="mailto:leul.der@gmail.com?subject=Strategic%20Consultation%20Inquiry%20-%20Leul%20Dereje" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/20 hover:bg-primary text-primary hover:text-on-primary border border-primary/40 font-bold transition-all shadow-md group">
+            <a href="mailto:leul.der@gmail.com?subject=Strategic%20Consultation%20Inquiry%20-%20Leul%20Dereje" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/20 hover:bg-primary text-primary hover:text-on-primary border border-primary/40 backdrop-blur-md font-bold transition-all shadow-md group">
               <span class="material-symbols-outlined text-[20px]">mail</span>
               <span>Direct Email</span>
             </a>
             <!-- Phone Quick Link -->
-            <a href="tel:+251911749499" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-surface/80 backdrop-blur-md hover:bg-surface-container-high text-on-surface font-semibold transition-colors border border-surface-variant/40">
+            <a href="tel:+251911749499" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] backdrop-blur-md text-on-surface font-semibold transition-colors border border-white/15">
               <span class="material-symbols-outlined text-[18px] text-secondary">call</span>
               <span>+251 911 74 94 99</span>
             </a>
           </div>
         </div>
-
       </div>
 
       <!-- MAIN BOOKING GRID: INTAKE FORM + ADVISORY SCOPE -->
@@ -226,8 +284,8 @@
         <div class="lg:col-span-5 flex flex-col gap-6">
           
           <!-- Card 1: Consulting Practice Areas -->
-          <div class="p-6 rounded-2xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/40 shadow-xl flex flex-col gap-4">
-            <div class="flex items-center justify-between pb-2 border-b border-surface-variant/30">
+          <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col gap-5">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
               <span class="font-label-sm uppercase tracking-wider text-secondary font-bold">Consulting Scope</span>
               <span class="material-symbols-outlined text-primary text-[20px]">domain_verification</span>
             </div>
@@ -236,8 +294,8 @@
               We consult across all lifecycle stages of premier Ethiopian real estate, serving corporate consortiums, private landholders, and diaspora funds.
             </p>
 
-            <div class="flex flex-col gap-2.5 pt-1">
-              <div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container/60 border border-surface-variant/30">
+            <div class="flex flex-col gap-3 pt-1">
+              <div class="glass-subcard flex items-start gap-3.5 p-3.5 rounded-2xl">
                 <span class="material-symbols-outlined text-primary text-[22px] mt-0.5">analytics</span>
                 <div>
                   <h4 class="font-title-md text-sm font-bold text-on-surface">Feasibility &amp; Financial Modeling</h4>
@@ -245,7 +303,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container/60 border border-surface-variant/30">
+              <div class="glass-subcard flex items-start gap-3.5 p-3.5 rounded-2xl">
                 <span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">architecture</span>
                 <div>
                   <h4 class="font-title-md text-sm font-bold text-on-surface">Architectural &amp; Program Audit</h4>
@@ -253,7 +311,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container/60 border border-surface-variant/30">
+              <div class="glass-subcard flex items-start gap-3.5 p-3.5 rounded-2xl">
                 <span class="material-symbols-outlined text-primary text-[22px] mt-0.5">handshake</span>
                 <div>
                   <h4 class="font-title-md text-sm font-bold text-on-surface">JV Deal &amp; Equity Structuring</h4>
@@ -261,7 +319,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container/60 border border-surface-variant/30">
+              <div class="glass-subcard flex items-start gap-3.5 p-3.5 rounded-2xl">
                 <span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">speed</span>
                 <div>
                   <h4 class="font-title-md text-sm font-bold text-on-surface">Sales Velocity &amp; Turnaround</h4>
@@ -272,29 +330,29 @@
           </div>
 
           <!-- Card 2: Consultation Protocol & Location -->
-          <div class="p-6 rounded-2xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/40 shadow-xl flex flex-col gap-4">
-            <div class="flex items-center justify-between pb-2 border-b border-surface-variant/30">
+          <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col gap-5">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
               <span class="font-label-sm uppercase tracking-wider text-secondary font-bold">Advisory Protocol</span>
               <span class="material-symbols-outlined text-secondary text-[20px]">calendar_month</span>
             </div>
             
             <div class="flex flex-col gap-3">
-              <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">01</span>
+              <div class="glass-subcard flex items-center gap-3.5 p-3 rounded-2xl">
+                <span class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shrink-0">01</span>
                 <div>
                   <span class="font-title-md text-xs font-bold text-on-surface block">Intake &amp; Conflict Review</span>
                   <span class="text-[11px] text-on-surface-variant block">Submissions are reviewed within 24 hours under confidential NDA.</span>
                 </div>
               </div>
-              <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs">02</span>
+              <div class="glass-subcard flex items-center gap-3.5 p-3 rounded-2xl">
+                <span class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs shrink-0">02</span>
                 <div>
                   <span class="font-title-md text-xs font-bold text-on-surface block">Direct Consultation (45–60 min)</span>
                   <span class="text-[11px] text-on-surface-variant block">In-person at our Bole luxury suite or via high-resolution virtual video link.</span>
                 </div>
               </div>
-              <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">03</span>
+              <div class="glass-subcard flex items-center gap-3.5 p-3 rounded-2xl">
+                <span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">03</span>
                 <div>
                   <span class="font-title-md text-xs font-bold text-on-surface block">Executive Action Memo</span>
                   <span class="text-[11px] text-on-surface-variant block">Actionable strategic diagnosis, ROI metrics, and next steps roadmap.</span>
@@ -303,7 +361,7 @@
             </div>
 
             <!-- Suite Location Box -->
-            <div class="p-3.5 rounded-xl bg-surface-container-lowest/80 border border-surface-variant/30 flex items-center gap-3 mt-2">
+            <div class="p-4 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/15 flex items-center gap-3.5 mt-1">
               <span class="material-symbols-outlined text-secondary text-[28px]">apartment</span>
               <div class="flex flex-col">
                 <span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface font-bold">Private Advisory Suite</span>
@@ -314,10 +372,10 @@
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: THE COMPREHENSIVE CONSULTATION BOOKING FORM (7 Cols) -->
-        <div class="lg:col-span-7 rounded-2xl bg-surface-container-high/70 backdrop-blur-2xl border border-surface-variant/50 p-6 sm:p-8 shadow-2xl">
+        <!-- RIGHT COLUMN: THE GLASSY CONSULTATION BOOKING FORM (7 Cols) -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-10">
           
-          <div class="flex flex-col gap-1 pb-4 border-b border-surface-variant/40 mb-6">
+          <div class="flex flex-col gap-1 pb-4 border-b border-white/10 mb-6">
             <div class="flex items-center justify-between">
               <span class="font-label-sm uppercase tracking-wider text-primary font-bold">Confidential Intake</span>
               <span class="flex items-center gap-1.5 text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
@@ -339,14 +397,14 @@
                 <label class="font-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-xs">
                   Principal / Client Name <span class="text-primary">*</span>
                 </label>
-                <input id="client-name" class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest/90 border border-surface-variant/40 text-on-surface font-body-md placeholder:text-outline text-title-md outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="e.g. Dawit Haile" required type="text">
+                <input id="client-name" class="glass-input w-full px-4 py-3.5 rounded-xl font-body-md placeholder:text-outline text-title-md outline-none" placeholder="e.g. Dawit Haile" required type="text">
               </div>
 
               <div class="flex flex-col gap-1.5">
                 <label class="font-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-xs">
                   Direct Phone / WhatsApp <span class="text-primary">*</span>
                 </label>
-                <input id="client-phone" class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest/90 border border-surface-variant/40 text-on-surface font-body-md placeholder:text-outline text-title-md outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="+251 91... or International" required type="tel">
+                <input id="client-phone" class="glass-input w-full px-4 py-3.5 rounded-xl font-body-md placeholder:text-outline text-title-md outline-none" placeholder="+251 91... or International" required type="tel">
               </div>
             </div>
 
@@ -356,20 +414,20 @@
                 <label class="font-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-xs">
                   Corporate / Personal Email <span class="text-primary">*</span>
                 </label>
-                <input id="client-email" class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest/90 border border-surface-variant/40 text-on-surface font-body-md placeholder:text-outline text-title-md outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="principal@company.com" required type="email">
+                <input id="client-email" class="glass-input w-full px-4 py-3.5 rounded-xl font-body-md placeholder:text-outline text-title-md outline-none" placeholder="principal@company.com" required type="email">
               </div>
 
               <div class="flex flex-col gap-1.5">
                 <label class="font-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-xs">
                   Advisory Scope / Topic
                 </label>
-                <select id="client-scope" class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest/90 border border-surface-variant/40 text-on-surface font-body-md outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                  <option class="bg-surface-container-lowest text-on-surface">New High-Rise Development Strategy</option>
-                  <option class="bg-surface-container-lowest text-on-surface">Joint Venture &amp; Equity Capitalization</option>
-                  <option class="bg-surface-container-lowest text-on-surface">Sales Velocity &amp; Commercial Turnaround</option>
-                  <option class="bg-surface-container-lowest text-on-surface">Land Acquisition &amp; Site Assessment</option>
-                  <option class="bg-surface-container-lowest text-on-surface">Private Portfolio Advisory (UHNW)</option>
-                  <option class="bg-surface-container-lowest text-on-surface">Other Strategic Real Estate Advisory</option>
+                <select id="client-scope" class="glass-input w-full px-4 py-3.5 rounded-xl font-body-md outline-none cursor-pointer">
+                  <option class="bg-[#121316] text-on-surface">New High-Rise Development Strategy</option>
+                  <option class="bg-[#121316] text-on-surface">Joint Venture &amp; Equity Capitalization</option>
+                  <option class="bg-[#121316] text-on-surface">Sales Velocity &amp; Commercial Turnaround</option>
+                  <option class="bg-[#121316] text-on-surface">Land Acquisition &amp; Site Assessment</option>
+                  <option class="bg-[#121316] text-on-surface">Private Portfolio Advisory (UHNW)</option>
+                  <option class="bg-[#121316] text-on-surface">Other Strategic Real Estate Advisory</option>
                 </select>
               </div>
             </div>
@@ -380,10 +438,10 @@
                 <label class="font-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-xs">
                   Preferred Consultation Mode
                 </label>
-                <select id="client-mode" class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest/90 border border-surface-variant/40 text-on-surface font-body-md outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                  <option class="bg-surface-container-lowest text-on-surface">In-Person (Private Suite, Bole, Addis Ababa)</option>
-                  <option class="bg-surface-container-lowest text-on-surface">Encrypted Virtual Video Call (Zoom / Google Meet)</option>
-                  <option class="bg-surface-container-lowest text-on-surface">Direct Phone Conference</option>
+                <select id="client-mode" class="glass-input w-full px-4 py-3.5 rounded-xl font-body-md outline-none cursor-pointer">
+                  <option class="bg-[#121316] text-on-surface">In-Person (Private Suite, Bole, Addis Ababa)</option>
+                  <option class="bg-[#121316] text-on-surface">Encrypted Virtual Video Call (Zoom / Google Meet)</option>
+                  <option class="bg-[#121316] text-on-surface">Direct Phone Conference</option>
                 </select>
               </div>
 
@@ -391,7 +449,7 @@
                 <label class="font-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-xs">
                   Target Project Location / Scale
                 </label>
-                <input id="client-location" class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest/90 border border-surface-variant/40 text-on-surface font-body-md placeholder:text-outline text-title-md outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="e.g. Bole, Kazanchis, CMC (or Diaspora)" type="text">
+                <input id="client-location" class="glass-input w-full px-4 py-3.5 rounded-xl font-body-md placeholder:text-outline text-title-md outline-none" placeholder="e.g. Bole, Kazanchis, CMC (or Diaspora)" type="text">
               </div>
             </div>
 
@@ -404,7 +462,7 @@
                 </label>
                 <span class="font-label-sm text-[11px] text-outline font-medium">Executive Brief</span>
               </div>
-              <textarea id="client-summary" class="w-full px-4 py-3.5 rounded-xl bg-surface-container-lowest/90 border border-surface-variant/40 text-on-surface font-body-md placeholder:text-outline text-title-md outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-y min-h-[140px]" placeholder="Please provide a clear summary of your project or consultation request:
+              <textarea id="client-summary" class="glass-input w-full px-4 py-3.5 rounded-xl font-body-md placeholder:text-outline text-title-md outline-none resize-y min-h-[140px]" placeholder="Please provide a clear summary of your project or consultation request:
 • Land parcel details (location, sqm, title status)
 • Proposed development type (residential, commercial high-rise, mixed-use)
 • Key challenges or goals (financing, JV partner search, architectural optimization, sales strategy)
@@ -439,7 +497,7 @@
             </div>
 
             <!-- Dynamic Success Feedback Banner -->
-            <div class="hidden p-5 rounded-xl bg-surface-container-high border border-emerald-500/40 text-on-surface flex flex-col gap-3 mt-3 shadow-xl" id="consult-success">
+            <div class="hidden p-6 rounded-2xl bg-black/60 backdrop-blur-2xl border border-emerald-500/40 text-on-surface flex flex-col gap-3 mt-3 shadow-xl" id="consult-success">
               <div class="flex items-center gap-2.5">
                 <span class="material-symbols-outlined text-emerald-400 text-[28px]">check_circle</span>
                 <span class="font-title-md text-title-md font-bold text-on-surface">Consultation Request Dispatched</span>
@@ -447,7 +505,7 @@
               <p class="font-body-sm text-body-sm text-on-surface-variant">
                 Thank you. Your consultation brief has been logged and sent to Leul Dereje's executive team. An advisory associate will contact you within 24 business hours.
               </p>
-              <div class="pt-3 flex flex-wrap items-center gap-2.5 border-t border-surface-variant/30">
+              <div class="pt-3 flex flex-wrap items-center gap-2.5 border-t border-white/10">
                 <a id="success-whatsapp-btn" href="https://wa.me/251911749499" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-400 font-label-sm text-xs font-semibold hover:bg-emerald-500 hover:text-black transition-colors">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.18-.47-.3Z"/></svg>
                   <span>Also forward to WhatsApp</span>
@@ -466,8 +524,8 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="w-full bg-surface-container-lowest text-on-surface-variant border-t border-surface-variant/30">
+  <!-- FOOTER (GLASSY FROSTED) -->
+  <footer class="w-full bg-black/50 backdrop-blur-2xl text-on-surface-variant border-t border-white/10 relative z-10">
     <div class="max-w-[1360px] mx-auto px-margin py-space-xl flex flex-col gap-space-xl">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
         <div class="md:col-span-5 flex flex-col gap-space-sm">
@@ -496,7 +554,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg border-t border-surface-variant/20">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg border-t border-white/10">
         <nav class="flex flex-wrap items-center gap-space-md font-label-md text-label-md" data-active-classes="text-primary font-bold">
           <a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="index.html">Home</a>
           <a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-and-experience" href="about.html">About &amp; Experience</a>
