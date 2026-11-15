@@ -1,651 +1,1054 @@
 <!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>Portfolio &amp; Case Studies — Leul Dereje | Real Estate Advisory</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-animate-in {
+      animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      "darkMode": "class",
+      "theme": {
+        "extend": {
+          "colors": {
+            "primary-fixed-dim": "#d0bcff",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb95f",
+            "surface-bright": "#38393c",
+            "primary-container": "#a078ff",
+            "tertiary-fixed-dim": "#ddb8ff",
+            "on-secondary-fixed": "#2a1700",
+            "inverse-primary": "#6d3bd7",
+            "tertiary-container": "#b175ec",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#0d0e11",
+            "on-tertiary-fixed": "#2c0051",
+            "background": "#121316",
+            "on-background": "#e3e2e6",
+            "surface-container-highest": "#343538",
+            "primary-fixed": "#e9ddff",
+            "secondary-fixed": "#ffddb8",
+            "surface-dim": "#121316",
+            "on-secondary-container": "#5b3800",
+            "on-tertiary": "#490081",
+            "secondary-container": "#ee9800",
+            "outline": "#958ea0",
+            "surface-container-low": "#1b1b1f",
+            "on-primary": "#3c0091",
+            "surface-variant": "#343538",
+            "surface-container": "#1f1f23",
+            "inverse-on-surface": "#2f3034",
+            "on-tertiary-container": "#400071",
+            "primary": "#d0bcff",
+            "surface-container-high": "#292a2d",
+            "on-tertiary-fixed-variant": "#62259b",
+            "tertiary": "#ddb8ff",
+            "on-primary-container": "#340080",
+            "on-secondary-fixed-variant": "#653e00",
+            "secondary": "#ffb95f",
+            "tertiary-fixed": "#f0dbff",
+            "on-secondary": "#472a00",
+            "on-primary-fixed": "#23005c",
+            "on-surface-variant": "#cbc3d7",
+            "on-primary-fixed-variant": "#5516be",
+            "on-surface": "#e3e2e6",
+            "outline-variant": "#494454",
+            "surface-tint": "#d0bcff",
+            "on-error": "#690005",
+            "inverse-surface": "#e3e2e6",
+            "surface": "#121316",
+            "error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin": "3rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Syne"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Syne"],
+            "headline-lg-mobile": ["Syne"],
+            "headline-sm": ["Syne"],
+            "display-mobile": ["Syne"],
+            "display": ["Syne"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["22px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "display-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+  <!-- HEADER NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
+    <div class="h-20 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-md">
+      <div class="flex items-center gap-space-md">
+        <a class="flex flex-col group" data-path="home" href="index.html">
+          <span class="font-headline-sm text-headline-sm text-on-surface tracking-wider uppercase group-hover:text-primary transition-colors">LEUL DEREJE</span>
+          <span class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-primary font-bold">REAL ESTATE STRATEGIST &amp; CONSULTANT</span>
+        </a>
+      </div>
+      <nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold">
+        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="index.html">Home</a>
+        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-and-experience" href="about.html">About &amp; Experience</a>
+        <a aria-current="page" class="transition-colors text-primary font-bold" data-path="projects-showcase" href="projects-showcase.html">Portfolio &amp; Case Studies</a>
+        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="index.html#contact">Contact / Let's Work</a>
+      </nav>
+      <div class="flex items-center gap-space-md">
+        <a class="px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg hover:bg-primary hover:text-on-primary shadow-[0_4px_20px_rgba(139,92,246,0.35)] transition-all" data-path="book-advisory" href="index.html#contact">Book Advisory / Contact</a>
+        <div class="flex items-center pl-space-xs">
+          <img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrDLbc-uUoHjL1NQUEQCoRg20RKwntjHypBK6-RxD8i6X0g5YoCroWq4_iWONaCIveBp-bmtnod8AGvLOidbfvG3DuTaVxAE5MXUI5LYD0Ap2AacFOK2aX8RGbCE5PFwpFhRFmpyxVQUo7aM9byOjzvzsml-e3CQdQ6xRA22tL5_8ZvHIkPZHNWUTuFo7JLmaHtPMlS4UHmL8DNpoGNR-Irpail0_nuWxdTe1yQIR0jRVQpdBlEstzN0"/>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<html class="dark scroll-smooth" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Syne:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"primary-fixed-dim":"#d0bcff","on-error-container":"#ffdad6","secondary-fixed-dim":"#ffb95f","surface-bright":"#38393c","primary-container":"#a078ff","tertiary-fixed-dim":"#ddb8ff","on-secondary-fixed":"#2a1700","inverse-primary":"#6d3bd7","tertiary-container":"#b175ec","error":"#ffb4ab","surface-container-lowest":"#0d0e11","on-tertiary-fixed":"#2c0051","background":"#121316","on-background":"#e3e2e6","surface-container-highest":"#343538","primary-fixed":"#e9ddff","secondary-fixed":"#ffddb8","surface-dim":"#121316","on-secondary-container":"#5b3800","on-tertiary":"#490081","secondary-container":"#ee9800","outline":"#958ea0","surface-container-low":"#1b1b1f","on-primary":"#3c0091","surface-variant":"#343538","surface-container":"#1f1f23","inverse-on-surface":"#2f3034","on-tertiary-container":"#400071","primary":"#d0bcff","surface-container-high":"#292a2d","on-tertiary-fixed-variant":"#62259b","tertiary":"#ddb8ff","on-primary-container":"#340080","on-secondary-fixed-variant":"#653e00","secondary":"#ffb95f","tertiary-fixed":"#f0dbff","on-secondary":"#472a00","on-primary-fixed":"#23005c","on-surface-variant":"#cbc3d7","on-primary-fixed-variant":"#5516be","on-surface":"#e3e2e6","outline-variant":"#494454","surface-tint":"#d0bcff","on-error":"#690005","inverse-surface":"#e3e2e6","surface":"#121316","error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2.5rem","gutter-mobile":"1rem","space-lg":"1.5rem","margin-mobile":"1.25rem","space-sm":"0.5rem","space-md":"1rem","gutter":"1.5rem","margin":"3rem","space-xs":"0.25rem"},"fontFamily":{"headline-md":["Syne"],"title-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg":["Syne"],"headline-lg-mobile":["Syne"],"headline-sm":["Syne"],"display-mobile":["Syne"],"display":["Syne"],"body-sm":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"600"}],"title-lg":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-lg":["17px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.04em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"600"}],"display-mobile":["38px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"display":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-20 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex flex-col group" data-path="home" href="index.html"><span class="font-headline-sm text-headline-sm text-on-surface tracking-wider uppercase group-hover:text-primary transition-colors">LEUL DEREJE</span><span class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-primary font-bold">REAL ESTATE STRATEGIST &amp; CONSULTANT</span></a></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="index.html">Home</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-and-experience" href="about.html">About &amp; Experience</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-portfolio" href="index.html#projects">Featured Portfolio</a><a aria-current="page" class="transition-colors text-primary font-bold" data-path="projects-showcase" href="projects-showcase.html">Projects Showcase</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="index.html#contact">Contact / Let's Work</a></nav><div class="flex items-center gap-space-md"><a class="px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg hover:bg-primary hover:text-on-primary shadow-[0_4px_20px_rgba(139,92,246,0.35)] transition-all" data-path="book-advisory" href="index.html#contact">Book Advisory / Contact</a><div class="flex items-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrDLbc-uUoHjL1NQUEQCoRg20RKwntjHypBK6-RxD8i6X0g5YoCroWq4_iWONaCIveBp-bmtnod8AGvLOidbfvG3DuTaVxAE5MXUI5LYD0Ap2AacFOK2aX8RGbCE5PFwpFhRFmpyxVQUo7aM9byOjzvzsml-e3CQdQ6xRA22tL5_8ZvHIkPZHNWUTuFo7JLmaHtPMlS4UHmL8DNpoGNR-Irpail0_nuWxdTe1yQIR0jRVQpdBlEstzN0"/></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
-<!-- Subtle Atmospheric Radiant Glows (Absolute Constrained) -->
-<div class="relative w-full overflow-hidden">
-<div class="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
-<div class="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-secondary-container/10 rounded-full blur-[160px] pointer-events-none"></div>
-<div class="absolute bottom-20 left-10 w-[550px] h-[550px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"></div>
-<!-- MAIN CONTAINER -->
-<div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-xl relative z-10">
-<!-- SECTION: Hero Header & Track Record Metrics -->
-<section class="flex flex-col gap-space-lg">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div class="flex flex-col max-w-3xl">
-<div class="flex items-center gap-space-xs mb-space-xs">
-<span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_12px_rgba(255,185,95,0.8)]"></span>
-<span class="font-label-sm text-label-sm uppercase tracking-[0.22em] text-secondary font-bold">Selective Advisory Engagements • East Africa</span>
-</div>
-<h1 class="font-display text-display text-on-surface tracking-tight uppercase">
-              PROJECT PORTFOLIO <span class="text-primary-fixed-dim">&amp;</span> CASE STUDIES
-            </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
-              Over <span class="text-secondary font-bold font-title-lg">473,000+ m²</span> of landmark residential, commercial towers, and multi-asset master plans steered across Addis Ababa and key regional growth corridors. Strategic structuring, JV alignment, investor advisory, and record sales velocity.
-            </p>
-</div>
-<!-- Quick High-Level Stat Bar -->
-<div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container/60 backdrop-blur-xl shadow-[0_12px_32px_rgba(0,0,0,0.5)]">
-<div class="flex flex-col pr-space-md">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">1.0B+ ETB</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Fastest Single Campaign</span>
-</div>
-<div class="w-px h-10 bg-surface-variant"></div>
-<div class="flex flex-col pl-space-xs">
-<span class="font-headline-sm text-headline-sm text-primary font-bold">20+</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Key Projects Directed</span>
-</div>
-</div>
-</div>
-<!-- Filter Pills Bar (Interactive Micro-Interaction) -->
-<div class="flex items-center gap-space-xs overflow-x-auto py-space-xs no-scrollbar" id="portfolio-filters">
-<button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-primary-container text-on-primary-container shadow-[0_0_20px_rgba(160,120,255,0.4)]" data-filter="all">
-            All Developments
-          </button>
-<button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="commercial">
-            Commercial &amp; Mixed Use
-          </button>
-<button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="residential">
-            Luxury Residential
-          </button>
-<button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="strategic">
-            Strategic Advisory &amp; JV
-          </button>
-<button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="under-construction">
-            Under Construction
-          </button>
-<button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="completed">
-            Completed
-          </button>
-</div>
-</section>
-<!-- SECTION: Featured Case Studies (Detailed Cards) -->
-<section class="flex flex-col gap-space-xl" id="projects-container">
-<!-- PROJECT XX — MARKOS TRADING -->
-<article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="residential strategic">
-<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-<!-- Architectural Image Section -->
-<div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[340px] lg:min-h-full">
-<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="Modern high-rise residential apartment tower Savina Royal Residence at golden hour sunset in Addis Ababa Gerji district with lush surroundings, tiered balconies and warm ambient architectural lighting matching dark violet night sky aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYeR7dwetAYcIqo4priepFatHOkt-MTxZ8mVOtOgdFOYFpVYSSLWw209zjRCdFF7Zx5W8lXJAnQsYhdqGBP62qqu544YTM4bcBSAbVTfozQaj4Cdx4idDnQb92BERkYnfmyTlxXL0LrBGuBMu-u4rKM0jTPWXq0YQk61iXWwuIZiAY5w1qMG8jn1GKeDN0ImlHX1CU8JUUgFv22GwjhsdLR1a4lTHHcaWuZwO4Kg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-container/90"></div>
-<div class="absolute top-4 left-4 flex items-center gap-2">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
-                  Active • Implementation
-                </span>
-<span class="px-space-sm py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-bold">
-                  Gerji • Bahirdar
-                </span>
-</div>
-<div class="absolute bottom-4 left-4 lg:hidden bg-surface-container-lowest/80 px-3 py-1.5 rounded-lg text-on-surface font-headline-sm">
-                PROJECT XX
+  <main class="w-full pt-20 bg-background min-h-screen">
+    <div class="flex flex-col w-full">
+      <!-- Subtle Atmospheric Radiant Glows -->
+      <div class="relative w-full overflow-hidden">
+        <div class="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-secondary-container/10 rounded-full blur-[160px] pointer-events-none"></div>
+        <div class="absolute bottom-20 left-10 w-[550px] h-[550px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <!-- MAIN CONTAINER -->
+        <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-xl relative z-10">
+
+          <!-- SECTION: Hero Header & Track Record Metrics -->
+          <section class="flex flex-col gap-space-lg">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+              <div class="flex flex-col max-w-3xl">
+                <div class="flex items-center gap-space-xs mb-space-xs">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_12px_rgba(255,185,95,0.8)]"></span>
+                  <span class="font-label-sm text-label-sm uppercase tracking-[0.22em] text-secondary font-bold">Selective Advisory Engagements • East Africa</span>
+                </div>
+                <h1 class="font-display text-display text-on-surface tracking-tight uppercase">
+                  PROJECT PORTFOLIO <span class="text-primary-fixed-dim">&amp;</span> CASE STUDIES
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
+                  Over <span class="text-secondary font-bold font-title-lg">473,000+ m²</span> of landmark residential towers, commercial hubs, and multi-asset master plans steered across Addis Ababa. Explore our curated developments below, with complete in-depth stories and analytical breakdowns available via each project's case study.
+                </p>
               </div>
-</div>
-<!-- Content Specification Column -->
-<div class="lg:col-span-6 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-br from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-center justify-between">
-<div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XX</span>
-<span class="h-6 w-px bg-outline-variant"></span>
-<span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">MARKOS TRADING</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim px-2.5 py-1 rounded bg-surface-variant/70">Dual-Asset</span>
-</div>
-<!-- Structured Scope Items -->
-<div class="flex flex-col gap-space-sm mt-space-xs">
-<!-- Subproject i -->
-<div class="p-space-md rounded-xl bg-surface-container-lowest/60 backdrop-blur-sm transition-colors hover:bg-surface-container-lowest/90">
-<div class="flex items-center justify-between mb-1">
-<h4 class="font-title-md text-title-md text-secondary font-bold">i. Ababa Real Estate</h4>
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Addis Ababa</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface mb-2 font-medium">Gerji — Residential Apartment (3B + G + 20)</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic">
-<strong class="text-primary-fixed not-italic font-bold">Mandate:</strong> Directed design architecture, execution roadmap, and commercial positioning strategy for the Gerji 20-story residential tower.
+
+              <!-- Quick High-Level Stat Bar -->
+              <div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container/60 backdrop-blur-xl shadow-[0_12px_32px_rgba(0,0,0,0.5)] border border-surface-variant/30 shrink-0">
+                <div class="flex flex-col pr-space-md">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">1.0B+ ETB</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Fastest Single Campaign</span>
+                </div>
+                <div class="w-px h-10 bg-surface-variant"></div>
+                <div class="flex flex-col pl-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">20+</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Key Projects Directed</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter Pills Bar -->
+            <div class="flex items-center gap-space-xs overflow-x-auto py-space-xs no-scrollbar" id="portfolio-filters">
+              <button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-primary-container text-on-primary-container shadow-[0_0_20px_rgba(160,120,255,0.4)]" data-filter="all">
+                All Developments
+              </button>
+              <button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="curated">
+                Curated Flagships
+              </button>
+              <button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="commercial">
+                Commercial &amp; Mixed Use
+              </button>
+              <button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="residential">
+                Luxury Residential
+              </button>
+              <button class="filter-btn px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="strategic">
+                Strategic Advisory &amp; JV
+              </button>
+            </div>
+          </section>
+
+          <!-- SECTION: CURATED FLAGSHIP DEVELOPMENTS (Relocated Strictly to Portfolio Tab) -->
+          <section class="flex flex-col gap-space-lg" id="curated-portfolio-section">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs border-b border-surface-variant/30 pb-space-sm">
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center gap-2">
+                  <span class="inline-block w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(208,188,255,0.8)]"></span>
+                  <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary font-bold">Curated Flagship Portfolio</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Landmark Capital Developments</h2>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+                Premier architectural towers and master planned developments where Leul Dereje served as lead strategic consultant. Click <strong class="text-secondary font-bold">Case Study</strong> to open the full advisory story.
+              </p>
+            </div>
+
+            <!-- 3-Column Luxury Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+              <!-- Flagship 1: Zablon Real Estate Skyscraper -->
+              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(139,92,246,0.25)] transition-all duration-300" data-category="curated commercial strategic">
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+                  <img alt="Zablon Real Estate Tower Architectural Rendering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC9Tf1quz0aWqqKH67G0Y6j3ObwP0WZsQRxxLFIrbdojYjIoFHvWEr_COfD_FHZyu3508NHIBia6Ruzpf27qbzUJ7QV9VaAx38PEeMJxBC6JTyRU-IBgLO36iXaPZoyo9S33BE-owZ8AE_eef_8iFgQCujCskLzDnTTy1IOsw6_9io4O7kc1FVWTHqwxvgt3_OouKYc3MepbUS1CaywP7KJ1f9n0oDw_NOAExd2Ap8yQDrKOAmaAc"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+                  <div class="absolute top-4 left-4 bg-surface-container-lowest/85 backdrop-blur-md px-3 py-1 rounded-full text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
+                    Project VII • 36 Stories
+                  </div>
+                  <div class="absolute bottom-3 right-4 bg-surface-container-highest/85 backdrop-blur-md px-2.5 py-1 rounded text-on-surface font-mono text-body-sm">
+                    61,740 M²
+                  </div>
+                </div>
+                <div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+                  <div class="flex flex-col gap-space-xs">
+                    <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Zablon Real Estate</span>
+                    <h3 class="font-title-lg text-title-lg text-on-surface group-hover:text-primary transition-colors">Skyscraper Mixed-Use Tower</h3>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                      Monumental architectural development featuring high-density commercial banking chambers and ultra-luxury residential suites in Addis Ababa's financial corridor.
                     </p>
-</div>
-<!-- Subproject ii -->
-<div class="p-space-md rounded-xl bg-surface-container-lowest/60 backdrop-blur-sm transition-colors hover:bg-surface-container-lowest/90">
-<div class="flex items-center justify-between mb-1">
-<h4 class="font-title-md text-title-md text-secondary font-bold">ii. Savana Real Estate</h4>
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Amhara Region</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface mb-2 font-medium">Bahirdar — High-Density Development (G + 8)</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic">
-<strong class="text-primary-fixed not-italic font-bold">Mandate:</strong> Direct bilateral sales negotiation with regional government stakeholders, technical design vetting, and turnkey site implementation.
+                  </div>
+                  <div class="pt-space-sm flex items-center justify-between border-t border-surface-variant/30">
+                    <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Strategy &amp; Feasibility</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="zablon">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Flagship 2: Elilta Real Estate Mixed-Use -->
+              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(139,92,246,0.25)] transition-all duration-300" data-category="curated commercial residential">
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+                  <img alt="Elilta Real Estate Development Masterplan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxDuXbCwNPzRMvXmvwINjPgAY7QjlHHByVJle_X-8SyxJmcB1lgqIdKnNf4KOkBNA4vnzesZSO0gmxNBQEqSYJlQLZ_hGu5YgVW6o7zbEn6OX-GgSyHa1knmUWhHJYmY781PcQUMpFoaqJVhmU-1_6VstroCSRZ87ZpCpJZX69IPClU_Tk3Q0lL_BV8onIM3QO-VrORWgX5pr1SsJEcl0Vp7lOSSpjDTh3Mhy6LbSM0wgouKT-loI"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+                  <div class="absolute top-4 left-4 bg-surface-container-lowest/85 backdrop-blur-md px-3 py-1 rounded-full text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
+                    Project VIII • Flagship
+                  </div>
+                  <div class="absolute bottom-3 right-4 bg-surface-container-highest/85 backdrop-blur-md px-2.5 py-1 rounded text-on-surface font-mono text-body-sm">
+                    67,500 M²
+                  </div>
+                </div>
+                <div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+                  <div class="flex flex-col gap-space-xs">
+                    <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Elilta Real Estate</span>
+                    <h3 class="font-title-lg text-title-lg text-on-surface group-hover:text-primary transition-colors">Commercial &amp; Residential Hub</h3>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                      Spearheaded commercial strategy and marketing deployment yielding over 600M ETB in signed sales within the initial six months of launch.
                     </p>
-</div>
-</div>
-</div>
-<!-- Footer Metadata Info -->
-<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">apartment</span> Multi-Tier Real Estate</span>
-<span class="text-primary font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Consultant Direct Oversight →</span>
-</div>
-</div>
-</div>
-</article>
-<!-- PROJECT XIX — ARADA ATEKILT TERA S.C. -->
-<article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial strategic completed">
-<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-<!-- Architectural Image Section -->
-<div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[340px] lg:min-h-full">
-<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="Expansive modern commercial complex and retail center in historical Arada Atekilt Tera district of Addis Ababa with glass curtain wall facade, urban boulevard traffic, light rail in foreground and blue sky architectural photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9w9OaK7N1zS86Hdv0GqZSfjq5R-LoPsnxU-tJbJE1UWdIQ4mlbnHb2tGnQLM_cbNfiaPHxbXEw3Wu8IwHr-0zs5hDjgDNEVOvP6GvsNAKr6oBIVtV1gvnhXPQS8L33XKvCiLM0G-CJtD6VUL_x2yFxTtk_QV7C3KnJdn3nzXeEM9G9gNnIV5czZxBtTOw5gLofisfNT76_JLQx8q1br5F-TgVMz6dAKyVEXEKsg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-surface-container/90"></div>
-<div class="absolute top-4 right-4 flex items-center gap-2">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
-                  Status: Completed
-                </span>
-<span class="px-space-sm py-1 rounded-full bg-secondary-container/30 text-secondary-fixed font-label-sm text-label-sm font-bold">
-                  106 Shareholders
-                </span>
-</div>
-</div>
-<!-- Content Specification Column -->
-<div class="lg:col-span-6 lg:order-1 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-bl from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XIX</span>
-<span class="h-6 w-px bg-outline-variant"></span>
-<span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">ARADA ATEKILT TERA S.C.</span>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest/50 backdrop-blur-sm">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Asset Type &amp; Lifecycle</span>
-<p class="font-title-lg text-title-lg text-on-surface mt-1">Multi-Level Prime Commercial Center &amp; Retail Space</p>
-<p class="font-body-sm text-body-sm text-secondary-fixed-dim mt-0.5 font-semibold">Fully Commissioned &amp; Operational</p>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-high/70 backdrop-blur-sm flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Strategic Shareholder Restructuring</span>
-<p class="font-body-md text-body-md text-on-surface leading-relaxed">
-                    Advised the commercial share company through complex retail equity structuring, formulating an equitable division framework of prime ground and upper-level shops across all <strong class="text-on-surface font-bold">106 shareholders</strong>.
-                  </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">
-                    Scope encapsulated in-depth spatial market valuation, foot-traffic tiering, and strategic advisory on dividend allocation mechanics to align diverse shareholder interests without conflict.
-                  </p>
-</div>
-</div>
-<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">pie_chart</span> Shareholder Equity Optimization</span>
-<span class="text-secondary font-semibold">Consensus Achieved 100%</span>
-</div>
-</div>
-</div>
-</article>
-<!-- PROJECT XVIII — GENZEBE DIBABA REAL ESTATE -->
-<article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential under-construction">
-<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-<!-- Architectural Image Section -->
-<div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[340px] lg:min-h-full">
-<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="Sophisticated 15-story mixed-use luxury tower with 5 commercial podium levels and 10 residential floors at twilight, designed for Genzebe Dibaba Real Estate in prime Addis Ababa, golden glow and glass curtain accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd5_IBJ4Q6jifbvZisXF4RF-Z75wBMUznr7sXc6h7V5wfqGUHIjXpgvy5ZjQXkLjMqZ6NpwADkYsGVK3qQPz7bxGBOiT6rlU1tEhbv2iwadwHW8QRQWNhpwuM99SaQfFB9z1NLCKkUoz_MaUEcTPI6QH49XuNUtbcifqf783wQq5WHKZY1Jj8VgAY-kWQnfwF6pcZL8vR717TdRWpQM8rJHy61mF5ENSRieEER0Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-container/90"></div>
-<div class="absolute top-4 left-4 flex items-center gap-2">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
-                  Under Construction
-                </span>
-<span class="px-space-sm py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-bold">
-                  3B + G + 15 Tower
-                </span>
-</div>
-</div>
-<!-- Content Specification Column -->
-<div class="lg:col-span-6 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-br from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XVIII</span>
-<span class="h-6 w-px bg-outline-variant"></span>
-<span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">GENZEBE DIBABA REAL ESTATE</span>
-</div>
-<div class="grid grid-cols-2 gap-space-sm">
-<div class="p-space-sm rounded-xl bg-surface-container-lowest/60">
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Height &amp; Basements</span>
-<p class="font-title-md text-title-md text-secondary font-bold">3B + G + 15 Floors</p>
-</div>
-<div class="p-space-sm rounded-xl bg-surface-container-lowest/60">
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Program Distribution</span>
-<p class="font-title-md text-title-md text-on-surface font-semibold">5 Com. / 10 Res.</p>
-</div>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-md flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Full Venture Genesis &amp; Execution</span>
-<p class="font-body-md text-body-md text-on-surface leading-relaxed">
-                    Retained to establish the real estate company entirely from inception: corporate structuring, internal team onboarding, and securing strategic market entry alliances to propel one of Ethiopia's iconic sporting families into top-tier property development.
-                  </p>
-<ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1 mt-1">
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Led architectural design competitions and engineering selection</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Structured national &amp; diaspora market penetration campaigns</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Orchestrated capital model and off-plan sales release timeline</li>
-</ul>
-</div>
-</div>
-<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">domain</span> Enterprise Launch • Addis Ababa</span>
-<span class="text-primary font-semibold">End-to-End Corporate Advisory</span>
-</div>
-</div>
-</div>
-</article>
-<!-- PROJECT XVII — OVID REAL ESTATE -->
-<article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="residential strategic under-construction">
-<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-<!-- Architectural Image Section -->
-<div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[340px] lg:min-h-full">
-<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="Expansive aerial masterplan render of Ovid Real Estate mega-scale residential community with dozens of modern apartment towers, green parks, sunset sky over Ethiopian landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_gi_Wf47p7yKLtrCNP8Wm_J0LY-4LoTPaZ3ngdoRWDtBGHN4OCEyKpiT8TrPpeZi6w6cuLG8AlRAfgGgu-BkWmK0FXwciXUug8DjBhDRUpumalOiZjS6pzNlMXF12BkBjFAP6Lx3BdIsCv9hLt1kjSXwMaSB8Rhg1HA-TwoOq2hY_gDRNv5m7wU_KDXGvusvvbcAW8NcRMFfwOvDi7zG0CmDiSgzmW8UzsJN4vw"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-surface-container/90"></div>
-<div class="absolute top-4 right-4 flex items-center gap-2">
-<span class="px-space-sm py-1 rounded-full bg-secondary-container/90 text-on-secondary-container font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
-                  1 Billion Birr Generated
-                </span>
-<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold">
-                  30-Day Sprint
-                </span>
-</div>
-</div>
-<!-- Content Specification Column -->
-<div class="lg:col-span-6 lg:order-1 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-bl from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XVII</span>
-<span class="h-6 w-px bg-outline-variant"></span>
-<span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">OVID REAL ESTATE</span>
-</div>
-<!-- Highlight Box: The 1 Billion Birr Metric -->
-<div class="p-space-md rounded-xl bg-gradient-to-r from-primary-container/20 via-surface-container-lowest to-surface-container-lowest p-space-md flex items-center gap-space-md">
-<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary font-headline-md shadow-[0_0_20px_rgba(208,188,255,0.4)]">
-<span class="material-symbols-outlined">trending_up</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Grand Sales Campaign Achievement</span>
-<span class="font-headline-sm text-headline-sm text-on-surface font-bold">&gt; 1,000,000,000 ETB in 30 Days</span>
-</div>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest/60 backdrop-blur-sm flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Executive Board Advisory • Counter Management</span>
-<p class="font-body-md text-body-md text-on-surface leading-relaxed">
-                    Served as high-level strategic advisor directly embedded with executive leadership. Spearheaded a specialized task force to execute nationwide sales sprints, redefine customer acquisition funnels, and mobilize high-net-worth liquidity.
-                  </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
-                    Structured operational counter-management workflows that compressed property transaction cycles and unlocked massive diaspora investor engagement.
-                  </p>
-</div>
-</div>
-<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">flash_on</span> Rapid High-Volume Sales Execution</span>
-<span class="text-secondary font-semibold">Mega-Scale Urban Footprint</span>
-</div>
-</div>
-</div>
-</article>
-<!-- PROJECT XVI — BAMACON REAL ESTATE -->
-<article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential under-construction">
-<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[480px]">
-<!-- Architectural Image Section -->
-<div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[340px] lg:min-h-full">
-<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="Gleaming modern architectural mixed-use skyscraper tower with golden geometric exterior accents in Kazanchis or Atlas district Addis Ababa under sunset clouds, luxury ground plaza" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbUro3pCsNqOoComaj2YGLGebVb3kEB2D8529lLdlCcsvk8irAptp9sssXODS9osg9Z81PFYo7ncgJkGYphZ4QjcJu1aUOwrpJa2rQ8fAVBQ5BbBzsa8L2sLidFDe2L2sbVR7zB7sPP1CnNyo3chZjNUT16F_6u4acnNKtRLMGZZITXw8SUg91VFAJS6swpjQP3VwL5j5hj_naX3ytEZCwiiWqWPotBvHu_oVK7Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-container/90"></div>
-<div class="absolute top-4 left-4 flex items-center gap-2">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
-                  111,000 m² Total GFA
-                </span>
-<span class="px-space-sm py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-bold">
-                  3 Flagship Sites
-                </span>
-</div>
-</div>
-<!-- Content Specification Column -->
-<div class="lg:col-span-6 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-br from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XVI</span>
-<span class="h-6 w-px bg-outline-variant"></span>
-<span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">BAMACON REAL ESTATE</span>
-</div>
-<!-- 3 Project Nodes Breakdown -->
-<div class="grid grid-cols-3 gap-space-xs text-center">
-<div class="p-space-sm rounded-xl bg-surface-container-lowest/70">
-<span class="font-label-sm text-label-sm uppercase text-secondary font-bold">Atlas Node</span>
-<p class="font-title-md text-title-md text-on-surface mt-0.5">16,000 m²</p>
-<span class="font-body-sm text-body-sm text-on-surface-variant">3B + G + 16</span>
-</div>
-<div class="p-space-sm rounded-xl bg-surface-container-lowest/70">
-<span class="font-label-sm text-label-sm uppercase text-secondary font-bold">Kazanchis Node</span>
-<p class="font-title-md text-title-md text-on-surface mt-0.5">56,000 m²</p>
-<span class="font-body-sm text-body-sm text-on-surface-variant">4B + G + 23</span>
-</div>
-<div class="p-space-sm rounded-xl bg-surface-container-lowest/70">
-<span class="font-label-sm text-label-sm uppercase text-secondary font-bold">Bambis Node</span>
-<p class="font-title-md text-title-md text-on-surface mt-0.5">39,000 m²</p>
-<span class="font-body-sm text-body-sm text-on-surface-variant">3B + G + 23</span>
-</div>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-md flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Comprehensive Marketing &amp; Sales Orchestration</span>
-<p class="font-body-md text-body-md text-on-surface leading-relaxed">
-                    Full-spectrum consultancy managing multi-site commercial positioning across three of Addis Ababa's most strategic transit and business hubs.
-                  </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                    Structured entire enterprise sales department, governance protocols, CRM pipeline tracking, pricing optimization per floor elevation, and diaspora sales roadshows across Europe and North America.
-                  </p>
-</div>
-</div>
-<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">location_city</span> Atlas • Kazanchis • Bambis</span>
-<span class="text-primary font-semibold">Institutional Portfolio Governance</span>
-</div>
-</div>
-</div>
-</article>
-<!-- PROJECT XV — DEMA HOPE REAL ESTATE -->
-<article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential under-construction">
-<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-<!-- Architectural Image Section -->
-<div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[340px] lg:min-h-full">
-<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="High-rise white modern architectural tower building with palm trees in foreground and bright blue sky, Dema Hope Real Estate flagship Addis Ababa Bole district with pristine facade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2RvjRIfmBz29bnU4n-z48qSZOM0QXE0kSi220uAQvPfCTbmoCH0dbnbZHTmIa-JRY0QdInZdClvHRFUunlEhF_80DN2962LEMXOCHOnhhV7I6_Y2OJkoPVRqgx3kkczNYt5m8Jyu9iOdsOEk10SDvm3BBj4AH9iktUscijS4IgSCf4xbEIf0detu7_rSVrREKlB8dQzXWcgYLKXdqrDn0LhOV-LeiBMEci6YflA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-surface-container/90"></div>
-<div class="absolute top-4 right-4 flex items-center gap-2">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
-                  3 High-Density Developments
-                </span>
-<span class="px-space-sm py-1 rounded-full bg-secondary/20 text-secondary-fixed font-label-sm text-label-sm font-bold">
-                  Bole Corridor
-                </span>
-</div>
-</div>
-<!-- Content Specification Column -->
-<div class="lg:col-span-6 lg:order-1 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-bl from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XV</span>
-<span class="h-6 w-px bg-outline-variant"></span>
-<span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">DEMA HOPE REAL ESTATE</span>
-</div>
-<!-- Three Key Sites List -->
-<div class="flex flex-col gap-2">
-<div class="p-space-xs px-space-md rounded-lg bg-surface-container-lowest/60 flex items-center justify-between">
-<span class="font-body-md text-body-md text-on-surface font-semibold">Wube's Apartments</span>
-<span class="font-label-md text-label-md text-secondary font-bold">3B + G + 20 • 900 m²</span>
-</div>
-<div class="p-space-xs px-space-md rounded-lg bg-surface-container-lowest/60 flex items-center justify-between">
-<span class="font-body-md text-body-md text-on-surface font-semibold">Bole Mixed Use Hub</span>
-<span class="font-label-md text-label-md text-secondary font-bold">5B + G + 23 • 1,200 m²</span>
-</div>
-<div class="p-space-xs px-space-md rounded-lg bg-surface-container-lowest/60 flex items-center justify-between">
-<span class="font-body-md text-body-md text-on-surface font-semibold">24 Mixed Use Apartments</span>
-<span class="font-label-md text-label-md text-secondary font-bold">2B + G + 19 • 500 m²</span>
-</div>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-md flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">End-to-End Enterprise Advisory</span>
-<p class="font-body-md text-body-md text-on-surface leading-relaxed">
-                    Lead consultant on organizational enterprise architecture, statutory legal alignment, and high-conversion go-to-market strategies. Directly supervised the architectural review boards and structured the investment horizons for subsequent Phase II &amp; III pipeline rollouts.
-                  </p>
-</div>
-</div>
-<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">analytics</span> Next-Phase Expansion Modeling</span>
-<span class="text-secondary font-semibold">Turnkey Developer Inception</span>
-</div>
-</div>
-</div>
-</article>
-<!-- PROJECT XIV — ABAY HOMES REAL ESTATE -->
-<article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential under-construction">
-<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-<!-- Architectural Image Section -->
-<div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[340px] lg:min-h-full">
-<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="Dramatic aerial view of twin and triplet contemporary luxury high-rise towers at a busy illuminated metropolitan intersection, Abay Midtown with manicured grounds and sunset amber ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5084kWj6WhpdAMTJR1fsVhA194KmLxjZGq7mmgZyKqQ-ExHVxwC3QK6Xe0oVVg0-xHnHYliqra31uArY87AB4Be-JhVwlDlC7STEIKhctXhSsPQXMd7Ttfc5wK7fBlxGHcpyHCTcjsPVkU6p_FKF6W_1YgZbQQ6tUV6sa7-mzORAA_-bEtSFfEH4SddESMFR50NBPV94_if-hg87A13wfY-9me4ugIyXW4qFxxg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-container/90"></div>
-<div class="absolute top-4 left-4 flex items-center gap-2">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
-                  Abay Midtown &amp; Centerville
-                </span>
-<span class="px-space-sm py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-bold">
-                  4 High-Rise Assets
-                </span>
-</div>
-</div>
-<!-- Content Specification Column -->
-<div class="lg:col-span-6 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-br from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XIV</span>
-<span class="h-6 w-px bg-outline-variant"></span>
-<span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">ABAY HOMES REAL ESTATE</span>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
-<div class="p-space-sm rounded-xl bg-surface-container-lowest/70 flex flex-col">
-<span class="font-label-sm text-label-sm text-secondary font-bold uppercase">Abay Centerville</span>
-<span class="font-title-md text-title-md text-on-surface mt-1">B + G + 10</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">500 SQM Footprint</span>
-</div>
-<div class="p-space-sm rounded-xl bg-surface-container-lowest/70 flex flex-col">
-<span class="font-label-sm text-label-sm text-secondary font-bold uppercase">Abay Midtown (3 Towers)</span>
-<span class="font-title-md text-title-md text-on-surface mt-1">3x (3B + G + 25)</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">2,500 SQM Each Site</span>
-</div>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-md flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Whole-Project Advisory &amp; Value Maximization</span>
-<p class="font-body-md text-body-md text-on-surface leading-relaxed">
-                    Entrusted with complete corporate structuring, institutional dynamic pricing strategies to maximize cash flow velocity, architectural blueprint reviews, and leading sales division management through all off-plan milestones.
-                  </p>
-</div>
-</div>
-<div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">layers</span> Mixed-Use Urban Scale</span>
-<span class="text-primary font-semibold">Strategic Pricing Master</span>
-</div>
-</div>
-</div>
-</article>
-</section>
-<!-- SECTION: Earlier Flagships Summary Grid (Projects I - XIII) -->
-<section class="flex flex-col gap-space-lg pt-space-lg">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-bold">Proven Foundation • 2018 - 2024</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight uppercase">
-              EARLIER FLAGSHIP PORTFOLIO • PROJECTS I TO XIII
-            </h2>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-            A selective archive of iconic residential high-rises and commercial towers shaped through strategic valuation, marketing design, and sales team direction.
-          </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
-<!-- Card 1: Project XIII -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT XIII</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">13,000 m²</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Tajir Real Estate</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">3B + G + 21 residential luxury complex in high-demand central Addis corridor.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">Full Strategic • Lead Advisory</div>
-</div>
-<!-- Card 2: Project XII -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT XII</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">22,000 m²</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Zeybe Homes</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Multi-building residential compound with lifestyle commercial arcade.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">Brand • Sales Systems</div>
-</div>
-<!-- Card 3: Project XI -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT XI</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-container/30 text-secondary-fixed">87,500 m²</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Menor Real Estate</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Massive landmark mixed-use cluster with integrated hospitality and office tower.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">GTM Masterplan • JV Structuring</div>
-</div>
-<!-- Card 4: Project X -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT X</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">14,400 m²</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Mulu Zewd Real Estate</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">High-end residential apartments with panoramic city vistas &amp; luxury penthouses.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">Off-Plan Strategy • Branding</div>
-</div>
-<!-- Card 5: Project VIII -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT VIII</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">600M ETB</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Elilta Real Estate</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">High velocity inventory liquidation across primary metropolitan market segment.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">Direct Sales Sprint Execution</div>
-</div>
-<!-- Card 6: Project VII -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT VII</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary/20 text-secondary-fixed">36 Floors</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Zablon Tower</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Architectural focal point skyscraper among tallest private developments in capital.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">Pre-Development Commercial Model</div>
-</div>
-<!-- Card 7: Project III & IV -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT III • IV</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">Metropolitan</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Metropolitan &amp; Westview</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">International standards high-spec residential delivery and luxury positioning.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">Luxury Segment Marketing</div>
-</div>
-<!-- Card 8: Project I & II -->
-<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
-<div class="flex items-center justify-between mb-space-xs">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT I • II</span>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">Sarbet • Bole</span>
-</div>
-<h3 class="font-title-md text-title-md text-on-surface font-semibold">Sarbet Gabriel &amp; Midtown</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pioneering multi-family urban residences with accelerated 100% absorption rates.</p>
-<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm uppercase">Inaugural Advisory Engagements</div>
-</div>
-</div>
-</section>
-<!-- SECTION: Interactive Investment Analytics & Geographic Footprint -->
-<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center p-space-lg rounded-2xl bg-surface-container-low/90 backdrop-blur-2xl shadow-xl">
-<div class="lg:col-span-6 flex flex-col gap-space-sm">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Asset Allocation &amp; Volume Breakdown</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-            DATA-DRIVEN DEVELOPMENT ARCHITECTURE
-          </h2>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            Every project portfolio milestone is grounded in empirical sub-market demand metrics, macro-economic liquidity shifts, and proprietary off-market investor cohorts. From shareholder dividend reconciliation at Arada to 1 Billion Birr sales campaigns at OVID, advisory is measurable.
-          </p>
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm mt-space-xs">
-<div class="p-space-sm rounded-lg bg-surface-container">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">473K+</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Total m² Governed</p>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container">
-<span class="font-headline-sm text-headline-sm text-primary font-bold">100%</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Project Viability</p>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container">
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">30 Days</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Record 1B Sprint</p>
-</div>
-</div>
-</div>
-<div class="lg:col-span-6 flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-md">
-<!-- Inline Architectural Portfolio Distribution Chart -->
-<div class="w-full flex flex-col gap-space-sm">
-<div class="flex items-center justify-between text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant">
-<span>Sector Concentration</span>
-<span class="text-secondary font-bold">Portfolio Split</span>
-</div>
-<!-- Commercial Bar -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between font-label-md text-label-md">
-<span class="text-on-surface">Mixed-Use &amp; Commercial High-Rises</span>
-<span class="text-secondary font-bold">52%</span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
-<div class="h-full bg-secondary rounded-full" style="width: 52%"></div>
-</div>
-</div>
-<!-- Luxury Residential Bar -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between font-label-md text-label-md">
-<span class="text-on-surface">Luxury High-Density Residential</span>
-<span class="text-primary font-bold">34%</span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
-<div class="h-full bg-primary-container rounded-full" style="width: 34%"></div>
-</div>
-</div>
-<!-- Strategic Shareholder & Advisory Bar -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between font-label-md text-label-md">
-<span class="text-on-surface">Masterplan &amp; Share Company Restructuring</span>
-<span class="text-primary-fixed-dim font-bold">14%</span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
-<div class="h-full bg-tertiary-container rounded-full" style="width: 14%"></div>
-</div>
-</div>
-<!-- Visual SVG Metric Sparkline -->
-<div class="mt-space-sm p-space-sm rounded-lg bg-surface-container/60 flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary">verified</span>
-<span class="font-body-sm text-body-sm text-on-surface font-medium">Addis Ababa Core Footprint (Bole, Kazanchis, Arada, Gerji, Sarbet)</span>
-</div>
-<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">High Liquidity</span>
-</div>
-</div>
-</div>
-</section>
-<!-- SECTION: Bottom High-Impact Consultation CTA -->
-<section class="relative rounded-2xl overflow-hidden p-space-lg md:p-space-xl bg-gradient-to-br from-surface-container-high/90 via-surface-container/80 to-surface-container-lowest/90 backdrop-blur-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8),0_0_35px_rgba(139,92,246,0.18)]">
-<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
-<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
-<div class="flex flex-col max-w-2xl">
-<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-bold mb-space-xs">
-              Direct Strategic Retainer • Private Client Suite
-            </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight uppercase">
-              HAVE AN UPCOMING LANDMARK DEVELOPMENT IN ETHIOPIA?
-            </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
-              Whether conceptualizing a mixed-use skyscraper, organizing complex shareholder allocations, or initiating a rapid nationwide sales campaign, engage Leul Dereje for sovereign-grade strategic counsel.
+                  </div>
+                  <div class="pt-space-sm flex items-center justify-between border-t border-surface-variant/30">
+                    <span class="font-body-sm text-body-sm text-secondary font-semibold">600M ETB Sold (6 Mos)</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="elilta">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Flagship 3: Abay Homes Centerville & Midtown -->
+              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(139,92,246,0.25)] transition-all duration-300" data-category="curated residential commercial">
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+                  <img alt="Abay Homes Centerville &amp; Midtown Urban Master Plan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArf9Pj_eP8boTcn_ETqgMGaDB4vokoITDr-OG3OSpAx5GGF4pJTK_VYHZN15HYFrnabSgZrt1FXXXqjdeZOIoNSd1mFY9QlcVHBDhdec5pSVO0sRQVLGMjwT7M5c1aEPmhu3DfybUP8H6CTh5kFrKb-8Pc5-T1gQqRqCQ0Vm2rTNX7UZ6AKt-9GSgBPfC6OE9If1O551aVHB-VJSrdTWo5EaZAfRhKe1XXLXqETHyZvop02PdLwK0"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+                  <div class="absolute top-4 left-4 bg-surface-container-lowest/85 backdrop-blur-md px-3 py-1 rounded-full text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
+                    Project XIV • Urban Core
+                  </div>
+                  <div class="absolute bottom-3 right-4 bg-surface-container-highest/85 backdrop-blur-md px-2.5 py-1 rounded text-on-surface font-mono text-body-sm">
+                    Centerville &amp; Midtown
+                  </div>
+                </div>
+                <div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+                  <div class="flex flex-col gap-space-xs">
+                    <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Abay Homes</span>
+                    <h3 class="font-title-lg text-title-lg text-on-surface group-hover:text-primary transition-colors">Centerville &amp; Midtown Complex</h3>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                      Comprehensive market alignment, unit typology optimization, and pricing architecture for twin landmark developments positioned for institutional diaspora buyers.
+                    </p>
+                  </div>
+                  <div class="pt-space-sm flex items-center justify-between border-t border-surface-variant/30">
+                    <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Design &amp; Sales Strategy</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="abay-homes">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- SECTION: COMPREHENSIVE STRATEGIC CASE STUDIES -->
+          <section class="flex flex-col gap-space-xl" id="projects-container">
+            <div class="border-b border-surface-variant/30 pb-space-xs mt-space-md">
+              <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-bold">Detailed Advisory Portfolio</span>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Institutional Engagements &amp; Mandates</h2>
+            </div>
+
+            <!-- PROJECT XX — MARKOS TRADING -->
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="residential strategic">
+              <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+                <div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
+                  <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Savina Royal Residence Gerji Addis Ababa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYeR7dwetAYcIqo4priepFatHOkt-MTxZ8mVOtOgdFOYFpVYSSLWw209zjRCdFF7Zx5W8lXJAnQsYhdqGBP62qqu544YTM4bcBSAbVTfozQaj4Cdx4idDnQb92BERkYnfmyTlxXL0LrBGuBMu-u4rKM0jTPWXq0YQk61iXWwuIZiAY5w1qMG8jn1GKeDN0ImlHX1CU8JUUgFv22GwjhsdLR1a4lTHHcaWuZwO4Kg"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-container/90"></div>
+                  <div class="absolute top-4 left-4 flex items-center gap-2">
+                    <span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">Active Implementation</span>
+                    <span class="px-space-sm py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-bold">Gerji • Bahirdar</span>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-br from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
+                  <div class="flex flex-col gap-space-sm">
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-baseline gap-space-sm">
+                        <span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XX</span>
+                        <span class="h-6 w-px bg-outline-variant"></span>
+                        <span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">MARKOS TRADING</span>
+                      </div>
+                      <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim px-2.5 py-1 rounded bg-surface-variant/70">Dual-Asset</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                      Simultaneous strategic leadership across two prime assets: directed design architecture, roadmap execution, and positioning for Gerji's 20-story residential tower (Ababa Real Estate), alongside turnkey site execution and government negotiations in Bahirdar (Savana Real Estate).
+                    </p>
+                    <div class="grid grid-cols-2 gap-2 mt-1">
+                      <div class="p-2.5 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[11px] uppercase font-bold text-secondary block">i. Ababa Real Estate</span>
+                        <span class="text-[13px] text-on-surface font-medium block">Gerji — 3B + G + 20</span>
+                      </div>
+                      <div class="p-2.5 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[11px] uppercase font-bold text-secondary block">ii. Savana Real Estate</span>
+                        <span class="text-[13px] text-on-surface font-medium block">Bahirdar — G + 8 Development</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant border-t border-surface-variant/30">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">apartment</span> Multi-Tier Real Estate</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="markos">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT XIX — ARADA ATEKILT TERA S.C. -->
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial strategic">
+              <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+                <div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
+                  <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Arada Atekilt Tera Commercial Complex" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9w9OaK7N1zS86Hdv0GqZSfjq5R-LoPsnxU-tJbJE1UWdIQ4mlbnHb2tGnQLM_cbNfiaPHxbXEw3Wu8IwHr-0zs5hDjgDNEVOvP6GvsNAKr6oBIVtV1gvnhXPQS8L33XKvCiLM0G-CJtD6VUL_x2yFxTtk_QV7C3KnJdn3nzXeEM9G9gNnIV5czZxBtTOw5gLofisfNT76_JLQx8q1br5F-TgVMz6dAKyVEXEKsg"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-surface-container/90"></div>
+                  <div class="absolute top-4 right-4 flex items-center gap-2">
+                    <span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">Completed</span>
+                    <span class="px-space-sm py-1 rounded-full bg-secondary-container/40 text-secondary-fixed font-label-sm text-label-sm font-bold">106 Shareholders</span>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 lg:order-1 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-bl from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
+                  <div class="flex flex-col gap-space-sm">
+                    <div class="flex items-baseline gap-space-sm">
+                      <span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XIX</span>
+                      <span class="h-6 w-px bg-outline-variant"></span>
+                      <span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">ARADA ATEKILT TERA S.C.</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                      Advised the commercial share company through complex retail equity structuring, formulating an equitable division framework of prime ground and upper-level shops across all 106 shareholders with zero litigation.
+                    </p>
+                    <div class="p-space-sm rounded-xl bg-surface-container-lowest/60 border border-surface-variant/30 flex items-center justify-between">
+                      <span class="text-secondary font-bold text-body-sm">Consensus Achieved: 100%</span>
+                      <span class="text-on-surface-variant text-body-sm">Multi-Level Prime Commercial Center</span>
+                    </div>
+                  </div>
+                  <div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant border-t border-surface-variant/30">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">pie_chart</span> Shareholder Equity Optimization</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="arada">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT XVIII — GENZEBE DIBABA REAL ESTATE -->
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential">
+              <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+                <div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
+                  <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Genzebe Dibaba Real Estate Tower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd5_IBJ4Q6jifbvZisXF4RF-Z75wBMUznr7sXc6h7V5wfqGUHIjXpgvy5ZjQXkLjMqZ6NpwADkYsGVK3qQPz7bxGBOiT6rlU1tEhbv2iwadwHW8QRQWNhpwuM99SaQfFB9z1NLCKkUoz_MaUEcTPI6QH49XuNUtbcifqf783wQq5WHKZY1Jj8VgAY-kWQnfwF6pcZL8vR717TdRWpQM8rJHy61mF5ENSRieEER0Q"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-container/90"></div>
+                  <div class="absolute top-4 left-4 flex items-center gap-2">
+                    <span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">Under Construction</span>
+                    <span class="px-space-sm py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-bold">3B + G + 15 Tower</span>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-br from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
+                  <div class="flex flex-col gap-space-sm">
+                    <div class="flex items-baseline gap-space-sm">
+                      <span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XVIII</span>
+                      <span class="h-6 w-px bg-outline-variant"></span>
+                      <span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">GENZEBE DIBABA REAL ESTATE</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                      Retained from corporate inception to establish the real estate enterprise entirely: organizational architecture, architectural competition review, engineering vetting, and structuring high-conversion national and diaspora launch campaigns.
+                    </p>
+                    <div class="grid grid-cols-2 gap-2 mt-1">
+                      <div class="p-2.5 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[11px] uppercase font-bold text-secondary block">Tower Height</span>
+                        <span class="text-[13px] text-on-surface font-semibold block">3B + G + 15 Floors</span>
+                      </div>
+                      <div class="p-2.5 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[11px] uppercase font-bold text-secondary block">Distribution</span>
+                        <span class="text-[13px] text-on-surface font-semibold block">5 Com. / 10 Res.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant border-t border-surface-variant/30">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">domain</span> Enterprise Launch • Addis Ababa</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="genzebe">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT XVII — OVID REAL ESTATE -->
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="residential strategic">
+              <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+                <div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
+                  <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="OVID Real Estate Masterplan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_gi_Wf47p7yKLtrCNP8Wm_J0LY-4LoTPaZ3ngdoRWDtBGHN4OCEyKpiT8TrPpeZi6w6cuLG8AlRAfgGgu-BkWmK0FXwciXUug8DjBhDRUpumalOiZjS6pzNlMXF12BkBjFAP6Lx3BdIsCv9hLt1kjSXwMaSB8Rhg1HA-TwoOq2hY_gDRNv5m7wU_KDXGvusvvbcAW8NcRMFfwOvDi7zG0CmDiSgzmW8UzsJN4vw"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-surface-container/90"></div>
+                  <div class="absolute top-4 right-4 flex items-center gap-2">
+                    <span class="px-space-sm py-1 rounded-full bg-secondary-container/90 text-on-secondary-container font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">1 Billion Birr Generated</span>
+                    <span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold">30-Day Sprint</span>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 lg:order-1 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-bl from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
+                  <div class="flex flex-col gap-space-sm">
+                    <div class="flex items-baseline gap-space-sm">
+                      <span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XVII</span>
+                      <span class="h-6 w-px bg-outline-variant"></span>
+                      <span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">OVID REAL ESTATE</span>
+                    </div>
+                    <div class="p-space-sm rounded-xl bg-gradient-to-r from-primary-container/20 via-surface-container-lowest to-surface-container-lowest flex items-center gap-space-md border border-primary/20">
+                      <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary font-headline-md shadow-[0_0_16px_rgba(208,188,255,0.4)]">
+                        <span class="material-symbols-outlined text-[20px]">trending_up</span>
+                      </div>
+                      <div class="flex flex-col">
+                        <span class="font-label-sm text-[10px] uppercase tracking-wider text-secondary font-bold">Grand Sales Campaign Achievement</span>
+                        <span class="font-title-lg text-title-lg text-on-surface font-bold">&gt; 1,000,000,000 ETB in 30 Days</span>
+                      </div>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                      Served as strategic advisor directly embedded with executive leadership, restructuring customer acquisition workflows, managing counter workflows, and mobilizing liquidity at unprecedented velocity.
+                    </p>
+                  </div>
+                  <div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant border-t border-surface-variant/30">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">flash_on</span> Rapid High-Volume Sales Execution</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="ovid">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT XVI — BAMACON REAL ESTATE -->
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential">
+              <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+                <div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
+                  <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Bamacon Real Estate Skyscraper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbUro3pCsNqOoComaj2YGLGebVb3kEB2D8529lLdlCcsvk8irAptp9sssXODS9osg9Z81PFYo7ncgJkGYphZ4QjcJu1aUOwrpJa2rQ8fAVBQ5BbBzsa8L2sLidFDe2L2sbVR7zB7sPP1CnNyo3chZjNUT16F_6u4acnNKtRLMGZZITXw8SUg91VFAJS6swpjQP3VwL5j5hj_naX3ytEZCwiiWqWPotBvHu_oVK7Q"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-container/90"></div>
+                  <div class="absolute top-4 left-4 flex items-center gap-2">
+                    <span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">111,000 m² Total GFA</span>
+                    <span class="px-space-sm py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-bold">3 Flagship Sites</span>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-br from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
+                  <div class="flex flex-col gap-space-sm">
+                    <div class="flex items-baseline gap-space-sm">
+                      <span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XVI</span>
+                      <span class="h-6 w-px bg-outline-variant"></span>
+                      <span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">BAMACON REAL ESTATE</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                      Full-spectrum multi-site commercial positioning across three of Addis Ababa's strategic transit hubs. Structured enterprise sales department, elevation pricing tiers, and international diaspora roadshows.
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 text-center mt-1">
+                      <div class="p-2 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[10px] uppercase text-secondary font-bold block">Atlas Node</span>
+                        <span class="text-[12px] text-on-surface font-semibold block">16,000 m²</span>
+                      </div>
+                      <div class="p-2 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[10px] uppercase text-secondary font-bold block">Kazanchis Node</span>
+                        <span class="text-[12px] text-on-surface font-semibold block">56,000 m²</span>
+                      </div>
+                      <div class="p-2 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[10px] uppercase text-secondary font-bold block">Bambis Node</span>
+                        <span class="text-[12px] text-on-surface font-semibold block">39,000 m²</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant border-t border-surface-variant/30">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">location_city</span> Atlas • Kazanchis • Bambis</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="bamacon">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT XV — DEMA HOPE REAL ESTATE -->
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential">
+              <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+                <div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
+                  <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Dema Hope Real Estate Tower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2RvjRIfmBz29bnU4n-z48qSZOM0QXE0kSi220uAQvPfCTbmoCH0dbnbZHTmIa-JRY0QdInZdClvHRFUunlEhF_80DN2962LEMXOCHOnhhV7I6_Y2OJkoPVRqgx3kkczNYt5m8Jyu9iOdsOEk10SDvm3BBj4AH9iktUscijS4IgSCf4xbEIf0detu7_rSVrREKlB8dQzXWcgYLKXdqrDn0LhOV-LeiBMEci6YflA"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-surface-container/90"></div>
+                  <div class="absolute top-4 right-4 flex items-center gap-2">
+                    <span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">3 Developments</span>
+                    <span class="px-space-sm py-1 rounded-full bg-secondary/20 text-secondary-fixed font-label-sm text-label-sm font-bold">Bole Corridor</span>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 lg:order-1 p-space-md lg:p-space-lg flex flex-col justify-between gap-space-md bg-gradient-to-bl from-surface-container/80 via-surface-container/60 to-surface-container-high/40">
+                  <div class="flex flex-col gap-space-sm">
+                    <div class="flex items-baseline gap-space-sm">
+                      <span class="font-headline-lg text-headline-lg text-secondary uppercase tracking-tight">PROJECT XV</span>
+                      <span class="h-6 w-px bg-outline-variant"></span>
+                      <span class="font-title-lg text-title-lg text-on-surface uppercase tracking-wider font-bold">DEMA HOPE REAL ESTATE</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                      Lead consultant on organizational enterprise architecture, statutory legal alignment, and high-conversion market strategies across three prominent Bole district sites: Wube's (20 Fl), Bole Mixed (23 Fl), and 24 Mixed (19 Fl).
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 text-center mt-1">
+                      <div class="p-2 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[10px] uppercase text-secondary font-bold block">Wube's Apts</span>
+                        <span class="text-[12px] text-on-surface font-semibold block">3B+G+20</span>
+                      </div>
+                      <div class="p-2 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[10px] uppercase text-secondary font-bold block">Bole Mixed</span>
+                        <span class="text-[12px] text-on-surface font-semibold block">5B+G+23</span>
+                      </div>
+                      <div class="p-2 rounded-lg bg-surface-container-lowest/70 border border-surface-variant/30">
+                        <span class="text-[10px] uppercase text-secondary font-bold block">24 Mixed</span>
+                        <span class="text-[12px] text-on-surface font-semibold block">2B+G+19</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-space-xs flex items-center justify-between font-label-md text-label-md text-on-surface-variant border-t border-surface-variant/30">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">analytics</span> Next-Phase Expansion Modeling</span>
+                    <button class="case-study-btn inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-bold transition-all shadow-sm" data-project-id="dema-hope">
+                      <span>Case Study</span>
+                      <span class="material-symbols-outlined text-[16px]">north_east</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- SECTION: Earlier Flagships Summary Grid (Projects I - XIII) -->
+          <section class="flex flex-col gap-space-lg pt-space-lg">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs border-b border-surface-variant/30 pb-space-sm">
+              <div class="flex flex-col">
+                <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-bold">Proven Foundation • 2018 - 2024</span>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight uppercase">
+                  COMPLETE ARCHIVE • PROJECTS I TO XIII
+                </h2>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                Selective foundational portfolio of residential high-rises and commercial towers shaped through feasibility valuation, marketing design, and sales team direction.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+              <!-- Card 1: Project XIII -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT XIII</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">13,000 m²</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">Tajir Real Estate</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">3B + G + 21 residential luxury complex in high-demand central Addis corridor.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>Full Advisory</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+
+              <!-- Card 2: Project XII -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT XII</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">22,000 m²</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">Zeybe Homes</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Multi-building residential compound with lifestyle commercial arcade.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>Sales Systems</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+
+              <!-- Card 3: Project XI -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT XI</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-container/30 text-secondary-fixed">87,500 m²</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">Bamacon Bole</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Twin-tower commercial office and premium retail complex.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>Pre-Leasing Model</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+
+              <!-- Card 4: Project X -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT X</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">14,400 m²</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">Mulu Zewd Real Estate</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">High-end residential apartments with panoramic city vistas &amp; luxury penthouses.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>Off-Plan Strategy</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+
+              <!-- Card 5: Project III & IV -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT III • IV</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">Metropolitan</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">Metropolitan &amp; Westview</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">International standards high-spec residential delivery and luxury positioning.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>Luxury Marketing</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+
+              <!-- Card 6: Project I & II -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT I • II</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">Sarbet • Bole</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">Sarbet Gabriel &amp; Midtown</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pioneering multi-family urban residences with accelerated 100% absorption rates.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>Inaugural Advisory</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+
+              <!-- Card 7: Menor Real Estate -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT IX</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">Mixed-Use</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">Menor Real Estate</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Massive landmark mixed-use cluster with integrated hospitality and office tower.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>JV Structuring</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+
+              <!-- Card 8: D&M Complex -->
+              <div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-surface-variant/30 shadow-md transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-space-xs">
+                  <span class="font-headline-sm text-headline-sm text-secondary font-bold">PROJECT V • VI</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-variant text-on-surface-variant">Commercial</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface font-semibold">D&amp;M Plaza &amp; Suites</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Commercial retail and corporate office development in major transit intersection.</p>
+                <div class="mt-space-sm pt-space-xs flex items-center justify-between text-primary font-label-sm text-label-sm uppercase border-t border-surface-variant/30">
+                  <span>Asset Optimization</span>
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION: Call To Action Footer Banner -->
+          <section class="p-space-lg rounded-2xl bg-gradient-to-r from-surface-container via-surface-container-high to-surface-container border border-surface-variant/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+            <div class="flex flex-col gap-1 max-w-2xl">
+              <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-bold">Strategic Partnership</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">
+                Ready to Structure Your Next Landmark Development?
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Whether conceptualizing a mixed-use skyscraper, organizing complex shareholder allocations, or initiating a rapid nationwide sales campaign, engage Leul Dereje for sovereign-grade strategic counsel.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-space-md shrink-0 w-full md:w-auto">
+              <a class="w-full sm:w-auto px-space-xl py-space-md rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold hover:bg-primary hover:text-on-primary transition-all shadow-[0_4px_25px_rgba(139,92,246,0.4)] text-center" data-path="book-advisory" href="index.html#contact">
+                Request Private Advisory
+              </a>
+              <a class="w-full sm:w-auto px-space-lg py-space-md rounded-lg bg-surface-variant/50 text-on-surface font-label-lg text-label-lg font-medium hover:bg-surface-variant transition-all text-center" data-path="contact" href="index.html#contact">
+                Direct Contact Lines
+              </a>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- CASE STUDY INTERACTIVE MODAL (Opens ONLY when client clicks Case Study button) -->
+  <div id="case-study-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-6 bg-black/85 backdrop-blur-xl transition-all duration-300 opacity-0 pointer-events-none" aria-hidden="true" role="dialog">
+    <div class="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-surface-container border border-surface-variant/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95),0_0_50px_rgba(139,92,246,0.25)] overflow-hidden transition-all duration-300" id="case-study-dialog">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-space-md py- space-sm md:px-space-lg md:py-space-md border-b border-surface-variant/30 bg-surface-container-high/70 backdrop-blur-md shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_10px_rgba(255,185,95,0.8)]"></span>
+          <span id="modal-project-number" class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-bold">PROJECT CASE STUDY</span>
+        </div>
+        <button id="modal-close-btn" class="w-9 h-9 rounded-full bg-surface-variant/50 hover:bg-surface-variant text-on-surface hover:text-primary flex items-center justify-center transition-colors" aria-label="Close modal">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Modal Scrollable Content Body -->
+      <div class="overflow-y-auto p-space-md md:p-space-lg flex flex-col gap-space-lg">
+        <!-- Top Banner / Image & Quick Specs -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md rounded-xl overflow-hidden bg-surface-container-lowest/80 border border-surface-variant/30">
+          <div class="md:col-span-6 relative aspect-[16/10] md:aspect-auto overflow-hidden min-h-[220px]">
+            <img id="modal-image" class="w-full h-full object-cover" src="" alt="Project architectural rendering">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+            <div id="modal-badge-status" class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-md">
+              Status
+            </div>
+          </div>
+          <div class="md:col-span-6 p-space-md flex flex-col justify-between gap-space-sm">
+            <div class="flex flex-col gap-1">
+              <span id="modal-client" class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">DEVELOPER</span>
+              <h2 id="modal-title" class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Project Title</h2>
+              <p id="modal-location" class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 mt-1">
+                <span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                <span id="modal-location-text">Addis Ababa, Ethiopia</span>
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 pt-2 border-t border-surface-variant/30">
+              <div class="p-2.5 rounded-lg bg-surface-container/60">
+                <span class="font-label-sm text-[10px] uppercase text-on-surface-variant block">Scope / Footprint</span>
+                <span id="modal-gfa" class="font-label-md text-label-md text-on-surface font-bold mt-0.5 block">61,740 M²</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-surface-container/60">
+                <span class="font-label-sm text-[10px] uppercase text-on-surface-variant block">Key Metric / Velocity</span>
+                <span id="modal-velocity" class="font-label-md text-label-md text-secondary font-bold mt-0.5 block">Record</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Detailed Story Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+          <!-- Pillar 1: The Challenge -->
+          <div class="p-space-md rounded-xl bg-surface-container-low/80 border border-surface-variant/30 flex flex-col gap-space-xs">
+            <div class="flex items-center gap-2 text-secondary">
+              <span class="material-symbols-outlined text-[20px]">troubleshoot</span>
+              <h4 class="font-label-md text-label-md uppercase tracking-wider font-bold">1. Strategic Challenge</h4>
+            </div>
+            <p id="modal-challenge" class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Challenge details.
             </p>
-</div>
-<div class="flex flex-col sm:flex-row items-center gap-space-md shrink-0">
-<a class="w-full sm:w-auto px-space-xl py-space-md rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold hover:bg-primary hover:text-on-primary transition-all shadow-[0_4px_25px_rgba(139,92,246,0.4)] text-center" data-path="book-advisory" href="index.html#contact">
-              Request Private Advisory
-            </a>
-<a class="w-full sm:w-auto px-space-lg py-space-md rounded-lg bg-surface-variant/50 text-on-surface font-label-lg text-label-lg font-medium hover:bg-surface-variant transition-all text-center" data-path="contact" href="index.html#contact">
-              Direct Contact Lines
-            </a>
-</div>
-</div>
-</section>
-</div>
-</div>
-<!-- Interactive JavaScript for Client-Side Filtering -->
-<script>
+          </div>
+
+          <!-- Pillar 2: The Mandate -->
+          <div class="p-space-md rounded-xl bg-surface-container-low/80 border border-surface-variant/30 flex flex-col gap-space-xs">
+            <div class="flex items-center gap-2 text-primary">
+              <span class="material-symbols-outlined text-[20px]">assignment</span>
+              <h4 class="font-label-md text-label-md uppercase tracking-wider font-bold">2. Advisory Mandate</h4>
+            </div>
+            <p id="modal-mandate" class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Mandate details.
+            </p>
+          </div>
+
+          <!-- Pillar 3: Execution & Strategy -->
+          <div class="p-space-md rounded-xl bg-surface-container-low/80 border border-surface-variant/30 flex flex-col gap-space-xs">
+            <div class="flex items-center gap-2 text-secondary">
+              <span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+              <h4 class="font-label-md text-label-md uppercase tracking-wider font-bold">3. Execution &amp; Solutions</h4>
+            </div>
+            <p id="modal-execution" class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Execution details.
+            </p>
+          </div>
+
+          <!-- Pillar 4: Quantifiable Results -->
+          <div class="p-space-md rounded-xl bg-surface-container-low/80 border border-primary/30 bg-gradient-to-br from-primary-container/10 via-transparent to-transparent flex flex-col gap-space-xs">
+            <div class="flex items-center gap-2 text-primary">
+              <span class="material-symbols-outlined text-[20px]">verified</span>
+              <h4 class="font-label-md text-label-md uppercase tracking-wider font-bold">4. Verified Results</h4>
+            </div>
+            <p id="modal-results" class="font-body-md text-body-md text-on-surface leading-relaxed font-medium">
+              Results details.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer Action Bar -->
+      <div class="px-space-md py-space-sm md:px-space-lg md:py-space-md border-t border-surface-variant/30 bg-surface-container-high/70 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-space-sm shrink-0">
+        <button id="modal-bottom-close" class="w-full sm:w-auto px-space-md py-2.5 rounded-lg bg-surface-variant/50 hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-colors">
+          Close Case Study
+        </button>
+        <a href="index.html#contact" class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-inverse-primary shadow-[0_4px_16px_rgba(139,92,246,0.35)] transition-all flex items-center justify-center gap-2">
+          <span>Engage for Similar Advisory</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface-container-lowest text-on-surface-variant">
+    <div class="max-w-[1360px] mx-auto px-margin py-space-xl flex flex-col gap-space-xl">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+        <div class="md:col-span-5 flex flex-col gap-space-sm">
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-headline-sm text-on-surface tracking-wider uppercase">LEUL DEREJE</span>
+            <span class="font-label-sm text-label-sm tracking-[0.16em] uppercase text-secondary font-bold">Premier Real Estate Advisory in East Africa</span>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-md pt-space-xs">
+            Providing sovereign high-net-worth investors, institutional developers, and private clients with bespoke acquisition strategy, market intelligence, and landmark residential representation across Ethiopia.
+          </p>
+        </div>
+        <div class="md:col-span-3 flex flex-col gap-space-xs">
+          <span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Headquarters</span>
+          <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+            <p class="text-on-surface font-medium">Bole Sub-City, Luxury District</p>
+            <p>Addis Ababa, Ethiopia</p>
+            <p class="text-secondary pt-space-xs">Private Advisory Suite (By Appointment Only)</p>
+          </div>
+        </div>
+        <div class="md:col-span-4 flex flex-col gap-space-xs">
+          <span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Direct Inquiries</span>
+          <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+            <p><span class="text-on-surface font-medium">Tel:</span> +251 911 74 94 99 / +251 913 58 07 87</p>
+            <p><span class="text-on-surface font-medium">Email:</span> leul.der@gmail.com</p>
+            <p class="font-label-sm text-label-sm text-primary tracking-wide pt-space-xs uppercase">Available via Secure Line &amp; Private Consultation</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg border-t border-surface-variant/20">
+        <nav class="flex flex-wrap items-center gap-space-md font-label-md text-label-md" data-active-classes="text-primary font-bold">
+          <a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="index.html">Home</a>
+          <a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-and-experience" href="about.html">About &amp; Experience</a>
+          <a aria-current="page" class="transition-colors text-primary font-bold" data-path="projects-showcase" href="projects-showcase.html">Portfolio &amp; Case Studies</a>
+          <a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="index.html#contact">Contact / Let's Work</a>
+        </nav>
+        <div class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-right">
+          © 2025 Leul Dereje. All rights reserved. Sovereign Real Estate Consulting.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLIENT-SIDE SCRIPT: FILTERING & CASE STUDY MODAL -->
+  <script>
+    const caseStudies = {
+      zablon: {
+        number: "PROJECT VII • 36 STORIES",
+        title: "Skyscraper Mixed-Use Tower",
+        client: "Zablon Real Estate",
+        location: "Financial District, Addis Ababa",
+        gfa: "61,740 M²",
+        status: "36 Stories • Landmark",
+        velocity: "Premier Financial Corridor",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCC9Tf1quz0aWqqKH67G0Y6j3ObwP0WZsQRxxLFIrbdojYjIoFHvWEr_COfD_FHZyu3508NHIBia6Ruzpf27qbzUJ7QV9VaAx38PEeMJxBC6JTyRU-IBgLO36iXaPZoyo9S33BE-owZ8AE_eef_8iFgQCujCskLzDnTTy1IOsw6_9io4O7kc1FVWTHqwxvgt3_OouKYc3MepbUS1CaywP7KJ1f9n0oDw_NOAExd2Ap8yQDrKOAmaAc",
+        challenge: "Structuring a high-density vertical development balancing sensitive financial headquarters requirements with premium luxury residential living within Addis Ababa's crowded financial center.",
+        mandate: "Comprehensive pre-development commercial architecture, tenant profile segmentation, floorplate spatial optimization, and high-net-worth investor allocation frameworks.",
+        execution: "Engineered high-security dual-entrance segregation for institutional banking chambers and private residences, formulated tiered pricing models per elevation view, and secured anchor corporate expressions of interest.",
+        results: "Established feasibility benchmarks for one of the tallest private skyscrapers in Addis Ababa, successfully positioning the development as a premier institutional landmark."
+      },
+      elilta: {
+        number: "PROJECT VIII • FLAGSHIP",
+        title: "Commercial & Residential Hub",
+        client: "Elilta Real Estate",
+        location: "Metropolitan Corridor, Addis Ababa",
+        gfa: "67,500 M²",
+        status: "Commissioned & Active",
+        velocity: "600M ETB in 6 Months",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCxDuXbCwNPzRMvXmvwINjPgAY7QjlHHByVJle_X-8SyxJmcB1lgqIdKnNf4KOkBNA4vnzesZSO0gmxNBQEqSYJlQLZ_hGu5YgVW6o7zbEn6OX-GgSyHa1knmUWhHJYmY781PcQUMpFoaqJVhmU-1_6VstroCSRZ87ZpCpJZX69IPClU_Tk3Q0lL_BV8onIM3QO-VrORWgX5pr1SsJEcl0Vp7lOSSpjDTh3Mhy6LbSM0wgouKT-loI",
+        challenge: "Liquidating a massive multi-hectare mixed inventory of residential apartments and prime commercial retail spaces in an increasingly competitive property marketplace.",
+        mandate: "End-to-end commercial strategy, go-to-market execution, structured sales sprint management, and aggressive diaspora investor marketing channels.",
+        execution: "Restructured the entire developer sales pipeline, introduced tiered milestone-based buyer incentives, and rolled out dedicated overseas diaspora marketing campaigns across the US and Europe.",
+        results: "Surpassed 600 Million ETB in verified signed contracts within the initial 6 months of rollout, establishing a benchmark absorption velocity for metropolitan mixed-use projects."
+      },
+      'abay-homes': {
+        number: "PROJECT XIV • URBAN CORE",
+        title: "Centerville & Midtown Complex",
+        client: "Abay Homes Real Estate",
+        location: "Urban Core, Addis Ababa",
+        gfa: "Centerville (B+G+10) & Midtown (3 Towers, 3B+G+25)",
+        status: "Active Execution",
+        velocity: "Twin Master Planned Sites",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuArf9Pj_eP8boTcn_ETqgMGaDB4vokoITDr-OG3OSpAx5GGF4pJTK_VYHZN15HYFrnabSgZrt1FXXXqjdeZOIoNSd1mFY9QlcVHBDhdec5pSVO0sRQVLGMjwT7M5c1aEPmhu3DfybUP8H6CTh5kFrKb-8Pc5-T1gQqRqCQ0Vm2rTNX7UZ6AKt-9GSgBPfC6OE9If1O551aVHB-VJSrdTWo5EaZAfRhKe1XXLXqETHyZvop02PdLwK0",
+        challenge: "Coordinating development planning, floorplate efficiency, and off-plan sales across twin high-density sites catering to discerning international and local buyers.",
+        mandate: "Whole-project architectural blueprint review, unit typology optimization, dynamic pricing matrices, and sales division direction through critical funding milestones.",
+        execution: "Converted redundant circulation areas into marketable living spaces, aligned unit layouts with diaspora buyer preferences, and implemented value-maximizing tiered payment architectures.",
+        results: "Significantly enhanced overall Gross Development Value (GDV), reduced investor sales cycles, and positioned both sites as leading residential developments in their sectors."
+      },
+      markos: {
+        number: "PROJECT XX • DUAL-ASSET",
+        title: "Markos Trading Portfolio",
+        client: "Markos Trading (Ababa & Savana)",
+        location: "Addis Ababa (Gerji) & Amhara Region (Bahirdar)",
+        gfa: "Gerji (3B+G+20) & Bahirdar (G+8)",
+        status: "Active Implementation",
+        velocity: "Multi-Jurisdictional Rollout",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAYeR7dwetAYcIqo4priepFatHOkt-MTxZ8mVOtOgdFOYFpVYSSLWw209zjRCdFF7Zx5W8lXJAnQsYhdqGBP62qqu544YTM4bcBSAbVTfozQaj4Cdx4idDnQb92BERkYnfmyTlxXL0LrBGuBMu-u4rKM0jTPWXq0YQk61iXWwuIZiAY5w1qMG8jn1GKeDN0ImlHX1CU8JUUgFv22GwjhsdLR1a4lTHHcaWuZwO4Kg",
+        challenge: "Synchronizing commercial strategy and execution roadmaps across two geographically distant markets governed by different regulatory bodies.",
+        mandate: "Directed design architecture, execution roadmap, and commercial positioning for Gerji 20-story residential tower, with direct bilateral negotiations for Bahirdar turnkey implementation.",
+        execution: "Harmonized architectural engineering standards across municipal jurisdictions while creating bespoke sales and off-plan contracting frameworks for each asset.",
+        results: "Unlocked seamless regional approvals, secured strong pre-construction interest, and established solid execution readiness across both property segments."
+      },
+      arada: {
+        number: "PROJECT XIX • HISTORIC DISTRICT",
+        title: "Prime Commercial Center & Retail Hub",
+        client: "Arada Atekilt Tera S.C.",
+        location: "Historic Arada District, Addis Ababa",
+        gfa: "Multi-Level Prime Commercial Center",
+        status: "Fully Commissioned & Operational",
+        velocity: "106 Shareholders Consensus",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9w9OaK7N1zS86Hdv0GqZSfjq5R-LoPsnxU-tJbJE1UWdIQ4mlbnHb2tGnQLM_cbNfiaPHxbXEw3Wu8IwHr-0zs5hDjgDNEVOvP6GvsNAKr6oBIVtV1gvnhXPQS8L33XKvCiLM0G-CJtD6VUL_x2yFxTtk_QV7C3KnJdn3nzXeEM9G9gNnIV5czZxBtTOw5gLofisfNT76_JLQx8q1br5F-TgVMz6dAKyVEXEKsg",
+        challenge: "Resolving intensive conflict among 106 diverse share company members regarding the equitable distribution and valuation of prime street-level versus upper-level commercial shops.",
+        mandate: "Independent spatial market valuation, foot-traffic tiering, equity restructuring, and conflict resolution mediation.",
+        execution: "Formulated an objective mathematical valuation algorithm that balanced foot traffic, facade exposure, and square meter values, paired with transparent multi-round stakeholder engagement.",
+        results: "Achieved 100% unanimous shareholder consensus without a single day of court litigation, facilitating immediate commercial retail tenant occupancy."
+      },
+      genzebe: {
+        number: "PROJECT XVIII • ENTERPRISE LAUNCH",
+        title: "Genzebe Dibaba Tower & Venture",
+        client: "Genzebe Dibaba Real Estate",
+        location: "Addis Ababa Prime District",
+        gfa: "3B + G + 15 (5 Commercial / 10 Residential)",
+        status: "Under Construction",
+        velocity: "Full Venture Genesis",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDd5_IBJ4Q6jifbvZisXF4RF-Z75wBMUznr7sXc6h7V5wfqGUHIjXpgvy5ZjQXkLjMqZ6NpwADkYsGVK3qQPz7bxGBOiT6rlU1tEhbv2iwadwHW8QRQWNhpwuM99SaQfFB9z1NLCKkUoz_MaUEcTPI6QH49XuNUtbcifqf783wQq5WHKZY1Jj8VgAY-kWQnfwF6pcZL8vR717TdRWpQM8rJHy61mF5ENSRieEER0Q",
+        challenge: "Establishing an elite property development brand from the ground up for one of Ethiopia's premier sporting dynasties without prior operational infrastructure.",
+        mandate: "Ground-up company creation, corporate structuring, architectural competition direction, team onboarding, and diaspora market penetration.",
+        execution: "Constructed the developer's operational framework, selected leading architectural firms, designed the capital expenditure model, and launched a high-profile brand identity campaign.",
+        results: "Successfully broke ground on the 15-story mixed-use tower with strong off-plan commitments and an established, enduring real estate corporate entity."
+      },
+      ovid: {
+        number: "PROJECT XVII • MEGA-SCALE",
+        title: "OVID Grand Sales Sprint & Masterplan",
+        client: "OVID Real Estate",
+        location: "Addis Ababa Mega-Scale Township",
+        gfa: "Mega-Scale Residential Township",
+        status: "Active Execution",
+        velocity: "> 1,000,000,000 ETB in 30 Days",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD_gi_Wf47p7yKLtrCNP8Wm_J0LY-4LoTPaZ3ngdoRWDtBGHN4OCEyKpiT8TrPpeZi6w6cuLG8AlRAfgGgu-BkWmK0FXwciXUug8DjBhDRUpumalOiZjS6pzNlMXF12BkBjFAP6Lx3BdIsCv9hLt1kjSXwMaSB8Rhg1HA-TwoOq2hY_gDRNv5m7wU_KDXGvusvvbcAW8NcRMFfwOvDi7zG0CmDiSgzmW8UzsJN4vw",
+        challenge: "Deploying rapid sales acceleration mechanisms across an unprecedented multi-tower industrial construction township development.",
+        mandate: "Executive leadership advisory, transaction cycle compression, counter-management workflows, and nationwide high-net-worth investor mobilization.",
+        execution: "Embedded directly with C-suite executives to overhaul the closing funnel, train high-velocity closing agents, and deploy targeted incentives for immediate contract execution.",
+        results: "Generated over 1 Billion Ethiopian Birr in recorded transactions within a single 30-day sales sprint, setting a national benchmark for property absorption."
+      },
+      bamacon: {
+        number: "PROJECT XVI • INSTITUTIONAL",
+        title: "Bamacon Tri-Node Developments",
+        client: "Bamacon Real Estate",
+        location: "Atlas, Kazanchis, & Bambis Hubs",
+        gfa: "111,000 M² Total GFA across 3 Sites",
+        status: "Under Construction",
+        velocity: "Corporate Governance & CRM",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAbUro3pCsNqOoComaj2YGLGebVb3kEB2D8529lLdlCcsvk8irAptp9sssXODS9osg9Z81PFYo7ncgJkGYphZ4QjcJu1aUOwrpJa2rQ8fAVBQ5BbBzsa8L2sLidFDe2L2sbVR7zB7sPP1CnNyo3chZjNUT16F_6u4acnNKtRLMGZZITXw8SUg91VFAJS6swpjQP3VwL5j5hj_naX3ytEZCwiiWqWPotBvHu_oVK7Q",
+        challenge: "Simultaneously orchestrating marketing, pricing, and sales operations across three mega-scale high-rises exceeding 111,000 m² of aggregate GFA.",
+        mandate: "Institutional enterprise sales governance, CRM implementation, elevation-specific pricing grids, and international diaspora roadshows.",
+        execution: "Established rigorous KPI tracking for all sales personnel, formulated floor-by-floor view value differentials, and led private investor roadshows across European capitals.",
+        results: "Maintained healthy developer margins despite rising building material costs and secured commanding pre-sale ratios across all three urban nodes."
+      },
+      'dema-hope': {
+        number: "PROJECT XV • CORRIDOR ADVISORY",
+        title: "Dema Hope Bole Corridor Cluster",
+        client: "Dema Hope Real Estate",
+        location: "Bole Luxury District, Addis Ababa",
+        gfa: "3 Sites: Wube's (20 Fl), Bole Mixed (23 Fl), 24 Mixed (19 Fl)",
+        status: "Under Construction",
+        velocity: "Turnkey Inception & Review",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA2RvjRIfmBz29bnU4n-z48qSZOM0QXE0kSi220uAQvPfCTbmoCH0dbnbZHTmIa-JRY0QdInZdClvHRFUunlEhF_80DN2962LEMXOCHOnhhV7I6_Y2OJkoPVRqgx3kkczNYt5m8Jyu9iOdsOEk10SDvm3BBj4AH9iktUscijS4IgSCf4xbEIf0detu7_rSVrREKlB8dQzXWcgYLKXdqrDn0LhOV-LeiBMEci6YflA",
+        challenge: "Managing risk and viability across 3 high-density developments in the premium Bole corridor while navigating volatile macroeconomic shifts.",
+        mandate: "Enterprise organizational advisory, legal statutory compliance, architectural review board leadership, and phased investment horizon structuring.",
+        execution: "Vetted floorplates for optimal space efficiency, structured index-linked payment schedules for buyers, and organized seamless phased pipeline releases.",
+        results: "Achieved zero buyer default across all active contracts while maintaining steady progress and safeguarding developer equity."
+      }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
+      // Filter functionality
       const filterButtons = document.querySelectorAll('.filter-btn');
       const projectCards = document.querySelectorAll('.project-card');
 
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-          // Update button styling
           filterButtons.forEach(b => {
             b.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_20px_rgba(160,120,255,0.4)]');
             b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
@@ -658,14 +1061,82 @@
           projectCards.forEach(card => {
             const categories = card.getAttribute('data-category') || '';
             if (filterValue === 'all' || categories.includes(filterValue)) {
-              card.style.display = 'block';
-              card.classList.add('animate-fadeIn');
+              card.style.display = '';
             } else {
               card.style.display = 'none';
             }
           });
         });
       });
+
+      // Case Study Modal Logic
+      const modal = document.getElementById('case-study-modal');
+      const modalDialog = document.getElementById('case-study-dialog');
+      const closeBtn = document.getElementById('modal-close-btn');
+      const bottomCloseBtn = document.getElementById('modal-bottom-close');
+
+      function openModal(projectId) {
+        const data = caseStudies[projectId];
+        if (!data) return;
+
+        document.getElementById('modal-project-number').textContent = data.number;
+        document.getElementById('modal-title').textContent = data.title;
+        document.getElementById('modal-client').textContent = data.client;
+        document.getElementById('modal-location-text').textContent = data.location;
+        document.getElementById('modal-gfa').textContent = data.gfa;
+        document.getElementById('modal-velocity').textContent = data.velocity;
+        document.getElementById('modal-badge-status').textContent = data.status;
+        document.getElementById('modal-image').src = data.image;
+        document.getElementById('modal-image').alt = data.title + ' Architectural Rendering';
+
+        document.getElementById('modal-challenge').textContent = data.challenge;
+        document.getElementById('modal-mandate').textContent = data.mandate;
+        document.getElementById('modal-execution').textContent = data.execution;
+        document.getElementById('modal-results').textContent = data.results;
+
+        modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+        modal.classList.add('flex', 'opacity-100');
+        modalDialog.classList.add('modal-animate-in');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100');
+        modalDialog.classList.remove('modal-animate-in');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }, 250);
+      }
+
+      // Attach clicks to all Case Study buttons
+      document.querySelectorAll('.case-study-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const projectId = btn.getAttribute('data-project-id');
+          openModal(projectId);
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (bottomCloseBtn) bottomCloseBtn.addEventListener('click', closeModal);
+
+      // Close on background overlay click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Close on ESC key
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
     });
   </script>
-</div></main><footer class="w-full bg-surface-container-lowest text-on-surface-variant"><div class="max-w-[1360px] mx-auto px-margin py-space-xl flex flex-col gap-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start"><div class="md:col-span-5 flex flex-col gap-space-sm"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-wider uppercase">LEUL DEREJE</span><span class="font-label-sm text-label-sm tracking-[0.16em] uppercase text-secondary font-bold">Premier Real Estate Advisory in East Africa</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md pt-space-xs">Providing sovereign high-net-worth investors, institutional developers, and private clients with bespoke acquisition strategy, market intelligence, and landmark residential representation across Ethiopia.</p></div><div class="md:col-span-3 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Headquarters</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><p class="text-on-surface font-medium">Bole Sub-City, Luxury District</p><p>Addis Ababa, Ethiopia</p><p class="text-secondary pt-space-xs">Private Advisory Suite (By Appointment Only)</p></div></div><div class="md:col-span-4 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Direct Inquiries</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><p><span class="text-on-surface font-medium">Tel:</span> +251 911 74 94 99 / +251 913 58 07 87</p><p><span class="text-on-surface font-medium">Email:</span> leul.der@gmail.com</p><p class="font-label-sm text-label-sm text-primary tracking-wide pt-space-xs uppercase">Available via Secure Line &amp; Private Consultation</p></div></div></div><div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg"><nav class="flex flex-wrap items-center gap-space-md font-label-md text-label-md" data-active-classes="text-primary font-bold"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="index.html">Home</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-and-experience" href="about.html">About &amp; Experience</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="featured-portfolio" href="index.html#projects">Featured Portfolio</a><a aria-current="page" class="transition-colors text-primary font-bold" data-path="projects-showcase" href="projects-showcase.html">Projects Showcase</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="index.html#contact">Contact / Let's Work</a></nav><div class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-right">© 2025 Leul Dereje. All rights reserved. Sovereign Real Estate Consulting.</div></div></div></footer></body></html>
+</body>
+</html>
