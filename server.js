@@ -49,6 +49,10 @@ const server = http.createServer((req, res) => {
   let reqPath = decodeURI(req.url.split('?')[0]);
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';
+  } else if (!path.extname(reqPath)) {
+    if (fs.existsSync(path.join(PUBLIC_DIR, reqPath + '.html'))) {
+      reqPath = reqPath + '.html';
+    }
   }
 
   const filePath = path.join(PUBLIC_DIR, reqPath);
