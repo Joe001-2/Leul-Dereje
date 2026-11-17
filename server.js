@@ -18,7 +18,8 @@ const MIME_TYPES = {
   '.webp': 'image/webp',
   '.mp4': 'video/mp4',
   '.xml': 'application/xml; charset=UTF-8',
-  '.txt': 'text/plain; charset=UTF-8'
+  '.txt': 'text/plain; charset=UTF-8',
+  '.webmanifest': 'application/manifest+json; charset=UTF-8'
 };
 
 function applySecurityHeaders(res) {
