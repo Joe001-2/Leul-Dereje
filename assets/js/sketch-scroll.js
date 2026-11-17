@@ -7,19 +7,31 @@
   'use strict';
 
   const TOTAL_FRAMES = 240;
-  const INITIAL_BATCH = 15; // Fast initial burst so first frames are ready in milliseconds
+  const INITIAL_BATCH = 20;
+
+  // Safe path resolution for both local file:// and web /assets/
+  const BASE_URL = (typeof window !== 'undefined' && window.location.protocol === 'file:')
+    ? 'assets/'
+    : '/assets/';
+
   const FRAME_PATH = (index) =>
-    `assets/sequence/frame_${String(index).padStart(4, '0')}.webp`;
+    `${BASE_URL}sequence/frame_${String(index).padStart(4, '0')}.webp`;
 
   const canvas = document.getElementById('sketch-canvas');
-  if (!canvas) return;
+  if (!canvas) {
+    console.warn('[SketchScroll] #sketch-canvas not found in DOM.');
+    return;
+  }
 
-  const ctx = canvas.getContext('2d', { alpha: false });
-  if (!ctx) return;
+  const ctx = canvas.getContext('2d', { alpha: true });
+  if (!ctx) {
+    console.warn('[SketchScroll] 2D canvas context not available.');
+    return;
+  }
 
-  // Image storage & status
+  // Image storage & status (0 = unrequested, 1 = loading, 2 = loaded, 3 = failed)
   const images = new Array(TOTAL_FRAMES);
-  const loadingStatus = new Uint8Array(TOTAL_FRAMES); // 0 = unrequested, 1 = loading, 2 = loaded, 3 = failed
+  const loadingStatus = new Uint8Array(TOTAL_FRAMES);
 
   // Cached layout metrics
   let coverDx = 0;
@@ -40,6 +52,7 @@
   function updateCoverMetrics() {
     const cw = canvas.width;
     const ch = canvas.height;
+    if (cw <= 0 || ch <= 0) return;
     const scale = Math.max(cw / NATIVE_W, ch / NATIVE_H);
     coverDw = Math.round(NATIVE_W * scale);
     coverDh = Math.round(NATIVE_H * scale);
@@ -52,8 +65,8 @@
    */
   function resizeCanvas() {
     const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+    const w = window.innerWidth || document.documentElement.clientWidth || 1280;
+    const h = window.innerHeight || document.documentElement.clientHeight || 720;
 
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
@@ -82,10 +95,26 @@
       img.onload = () => {
         images[index] = img;
         loadingStatus[index] = 2;
+        // If this is the current frame, render immediately
+        if (Math.round(currentFrame) === index) {
+          renderSubFrame(currentFrame);
+        }
         resolve(img);
       };
       img.onerror = () => {
         loadingStatus[index] = 3;
+        // Quick retry once in case of temporary network glitch
+        setTimeout(() => {
+          if (loadingStatus[index] === 3) {
+            const retryImg = new Image();
+            retryImg.src = FRAME_PATH(index + 1);
+            retryImg.onload = () => {
+              images[index] = retryImg;
+              loadingStatus[index] = 2;
+              if (Math.round(currentFrame) === index) renderSubFrame(currentFrame);
+            };
+          }
+        }, 800);
         resolve(null);
       };
     });
@@ -113,7 +142,6 @@
 
   /**
    * Silky Sub-Frame Rendering Engine with Dual-Frame Alpha Cross-Fade
-   * Eliminates discrete stepping cuts and renders fluid analog transitions.
    */
   function renderSubFrame(framePos) {
     const clampedPos = Math.max(0, Math.min(TOTAL_FRAMES - 1, framePos));
@@ -126,6 +154,8 @@
       : getNearestLoadedFrame(floorIdx);
 
     if (!baseImg) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw primary base frame
     ctx.globalAlpha = 1.0;
@@ -151,8 +181,7 @@
       const absDiff = Math.abs(diff);
 
       if (absDiff > 0.002) {
-        // Damped momentum (lerp factor: 0.10 for organic, non-jerky glide)
-        currentFrame += diff * 0.10;
+        currentFrame += diff * 0.12;
         renderSubFrame(currentFrame);
       } else if (absDiff > 0) {
         currentFrame = targetFrame;
@@ -170,8 +199,8 @@
    * Prioritize loading frames surrounding the user's current scroll area
    */
   function prioritizeFramesNear(centerIndex) {
-    const RADIUS = 20;
-    const start = Math.max(0, centerIndex - 5);
+    const RADIUS = 25;
+    const start = Math.max(0, centerIndex - 8);
     const end = Math.min(TOTAL_FRAMES, centerIndex + RADIUS);
 
     for (let i = start; i < end; i++) {
@@ -183,7 +212,6 @@
 
   /**
    * Native, non-blocking scroll progress calculator
-   * Uses 100% passive listeners so native touch and trackpad scrolling is NEVER locked.
    */
   function updateScrollProgress() {
     const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -204,8 +232,8 @@
    * High-speed parallel background stream for remaining frames
    */
   function streamAllRemainingFrames() {
-    let nextIndex = INITIAL_BATCH;
-    const CONCURRENCY = 6;
+    let nextIndex = 0;
+    const CONCURRENCY = 8;
 
     function pumpLane() {
       if (nextIndex >= TOTAL_FRAMES) return;
@@ -224,8 +252,9 @@
     }
   }
 
-  // Attach passive scroll listeners immediately — ZERO DELAY, ZERO BLOCKING
+  // Attach passive scroll listeners
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  document.addEventListener('scroll', updateScrollProgress, { passive: true });
   window.addEventListener('touchmove', updateScrollProgress, { passive: true });
 
   // Mobile address bar friendly resize listener
@@ -248,14 +277,10 @@
     renderSubFrame(0);
   });
 
-  // Load first burst in parallel, then stream the rest
-  const burstLoads = [];
+  // Fast burst for top frames and stream remainder in parallel
   for (let i = 0; i < Math.min(INITIAL_BATCH, TOTAL_FRAMES); i++) {
-    burstLoads.push(loadSingleFrame(i));
+    loadSingleFrame(i);
   }
-
-  Promise.all(burstLoads).then(() => {
-    streamAllRemainingFrames();
-  });
+  streamAllRemainingFrames();
 
 })();
