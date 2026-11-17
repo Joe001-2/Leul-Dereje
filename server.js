@@ -62,9 +62,11 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   let reqPath = decodeURI(parsedUrl.pathname);
 
-  // 1. Canonical Redirect: prevent "/index.html" in URL, redirect to clean root "/"
-  if (reqPath === '/index.html') {
-    const target = '/' + (parsedUrl.search || '');
+  // 1. Canonical Redirects: prevent ".html" in URLs, redirect to clean routes
+  if (reqPath.endsWith('.html') && !reqPath.startsWith('/google')) {
+    let clean = reqPath.slice(0, -5);
+    if (clean === '/index') clean = '/';
+    const target = clean + (parsedUrl.search || '');
     res.writeHead(301, {
       'Location': target,
       'Cache-Control': 'public, max-age=3600'
@@ -76,7 +78,9 @@ const server = http.createServer((req, res) => {
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';
   } else if (!path.extname(reqPath)) {
-    if (fs.existsSync(path.join(PUBLIC_DIR, reqPath + '.html'))) {
+    if (reqPath === '/projects' && fs.existsSync(path.join(PUBLIC_DIR, 'projects-showcase.html'))) {
+      reqPath = '/projects-showcase.html';
+    } else if (fs.existsSync(path.join(PUBLIC_DIR, reqPath + '.html'))) {
       reqPath = reqPath + '.html';
     }
   }
