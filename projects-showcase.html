@@ -46,112 +46,50 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
     tailwind.config = {
-      "darkMode": "class",
-      "theme": {
-        "extend": {
-          "colors": {
-            "primary-fixed-dim": "#d0bcff",
-            "on-error-container": "#ffdad6",
-            "secondary-fixed-dim": "#ffb95f",
-            "surface-bright": "#38393c",
-            "primary-container": "#a078ff",
-            "tertiary-fixed-dim": "#ddb8ff",
-            "on-secondary-fixed": "#2a1700",
-            "inverse-primary": "#6d3bd7",
-            "tertiary-container": "#b175ec",
-            "error": "#ffb4ab",
-            "surface-container-lowest": "#0d0e11",
-            "on-tertiary-fixed": "#2c0051",
-            "background": "#121316",
-            "on-background": "#e3e2e6",
-            "surface-container-highest": "#343538",
-            "primary-fixed": "#e9ddff",
-            "secondary-fixed": "#ffddb8",
-            "surface-dim": "#121316",
-            "on-secondary-container": "#5b3800",
-            "on-tertiary": "#490081",
-            "secondary-container": "#ee9800",
-            "outline": "#958ea0",
-            "surface-container-low": "#1b1b1f",
-            "on-primary": "#3c0091",
-            "surface-variant": "#343538",
-            "surface-container": "#1f1f23",
-            "inverse-on-surface": "#2f3034",
-            "on-tertiary-container": "#400071",
-            "primary": "#d0bcff",
-            "surface-container-high": "#292a2d",
-            "on-tertiary-fixed-variant": "#62259b",
-            "tertiary": "#ddb8ff",
-            "on-primary-container": "#340080",
-            "on-secondary-fixed-variant": "#653e00",
-            "secondary": "#ffb95f",
-            "tertiary-fixed": "#f0dbff",
-            "on-secondary": "#472a00",
-            "on-primary-fixed": "#23005c",
-            "on-surface-variant": "#cbc3d7",
-            "on-primary-fixed-variant": "#5516be",
-            "on-surface": "#e3e2e6",
-            "outline-variant": "#494454",
-            "surface-tint": "#d0bcff",
-            "on-error": "#690005",
-            "inverse-surface": "#e3e2e6",
-            "surface": "#121316",
-            "error-container": "#93000a"
-          },
-          "borderRadius": {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "2xl": "1rem",
-            "full": "9999px"
-          },
-          "spacing": {
-            "space-xl": "2.5rem",
-            "gutter-mobile": "1rem",
-            "space-lg": "1.5rem",
-            "margin-mobile": "1.25rem",
-            "space-sm": "0.5rem",
-            "space-md": "1rem",
-            "gutter": "1.5rem",
-            "margin": "3rem",
-            "space-xs": "0.25rem"
-          },
-          "fontFamily": {
-            "headline-md": ["Syne"],
-            "title-md": ["Plus Jakarta Sans"],
-            "title-lg": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"],
-            "label-sm": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
-            "label-lg": ["Plus Jakarta Sans"],
-            "label-md": ["Plus Jakarta Sans"],
-            "headline-lg": ["Syne"],
-            "headline-lg-mobile": ["Syne"],
-            "headline-sm": ["Syne"],
-            "display-mobile": ["Syne"],
-            "display": ["Syne"],
-            "body-sm": ["Plus Jakarta Sans"]
-          },
-          "fontSize": {
-            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-            "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }],
-            "title-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
-            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }],
-            "body-lg": ["17px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
-            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
-            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
-            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-            "headline-sm": ["22px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
-            "display-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
-            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }]
-          }
-        }
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#FFFFFF",
+        "primary-fixed-dim": "#D4D4D8",
+        "primary-container": "#27272A",
+        "on-primary": "#000000",
+        "on-primary-container": "#FFFFFF",
+        "secondary": "#A1A1AA",
+        "secondary-fixed": "#D4D4D8",
+        "secondary-container": "#18181B",
+        "on-secondary": "#000000",
+        "on-secondary-container": "#FFFFFF",
+        "tertiary": "#E4E4E7",
+        "tertiary-container": "#27272A",
+        "on-tertiary": "#000000",
+        "background": "#000000",
+        "on-background": "#FFFFFF",
+        "surface": "#09090B",
+        "surface-bright": "#27272A",
+        "surface-dim": "#09090B",
+        "surface-variant": "#18181B",
+        "surface-container-lowest": "#000000",
+        "surface-container-low": "#0A0A0C",
+        "surface-container": "#121214",
+        "surface-container-high": "#1E1E22",
+        "surface-container-highest": "#27272A",
+        "on-surface": "#FFFFFF",
+        "on-surface-variant": "#A1A1AA",
+        "outline": "#3F3F46",
+        "outline-variant": "#27272A",
+        "surface-tint": "#FFFFFF",
+        "error": "#EF4444"
+      },
+      borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+      spacing: { "gutter": "1.5rem", "space-xl": "2.5rem", "gutter-mobile": "1rem", "space-md": "1rem", "space-sm": "0.5rem", "margin": "3rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "margin-mobile": "1.25rem" },
+      fontFamily: {
+        "headline-md": ["Syne"], "title-md": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-lg": ["Syne"], "headline-lg-mobile": ["Syne"], "headline-sm": ["Syne"], "display-mobile": ["Syne"], "display": ["Syne"], "body-sm": ["Plus Jakarta Sans"]
       }
-    };
-  </script>
+    }
+  }
+};
+</script>
 </head>
 <body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
   <!-- HEADER NAVIGATION -->
@@ -182,9 +120,9 @@
     <div class="flex flex-col w-full">
       <!-- Subtle Atmospheric Radiant Glows -->
       <div class="relative w-full overflow-hidden">
-        <div class="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
-        <div class="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-secondary-container/10 rounded-full blur-[160px] pointer-events-none"></div>
-        <div class="absolute bottom-20 left-10 w-[550px] h-[550px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"></div>
+        
+        
+        
 
         <!-- MAIN CONTAINER -->
         <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-margin py-6 sm:py-space-xl flex flex-col gap-space-xl relative z-10">
@@ -194,7 +132,7 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
               <div class="flex flex-col max-w-3xl">
                 <div class="flex items-center gap-space-xs mb-space-xs">
-                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_12px_rgba(255,185,95,0.8)]"></span>
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_12px_rgba(255, 255, 255, 0.2)]"></span>
                   <span class="font-label-sm text-xs sm:text-label-sm uppercase tracking-[0.18em] sm:tracking-[0.22em] text-secondary font-bold">Selective Advisory Engagements • East Africa</span>
                 </div>
                 <h1 class="font-display text-[28px] leading-[34px] sm:text-[44px] sm:leading-[50px] lg:text-display text-on-surface tracking-tight uppercase">
@@ -221,7 +159,7 @@
 
             <!-- Filter Pills Bar -->
             <div class="flex items-center gap-2 overflow-x-auto py-2 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar" id="portfolio-filters">
-              <button class="filter-btn shrink-0 px-4 py-2 sm:px-space-md sm:py-space-xs rounded-full font-label-md text-xs sm:text-label-md transition-all duration-300 bg-primary-container text-on-primary-container shadow-[0_0_20px_rgba(160,120,255,0.4)]" data-filter="all">
+              <button class="filter-btn shrink-0 px-4 py-2 sm:px-space-md sm:py-space-xs rounded-full font-label-md text-xs sm:text-label-md transition-all duration-300 bg-primary-container text-on-primary-container shadow-sm border border-white/20" data-filter="all">
                 All Developments
               </button>
               <button class="filter-btn shrink-0 px-4 py-2 sm:px-space-md sm:py-space-xs rounded-full font-label-md text-xs sm:text-label-md transition-all duration-300 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" data-filter="curated">
@@ -244,7 +182,7 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs border-b border-surface-variant/30 pb-space-sm">
               <div class="flex flex-col gap-1">
                 <div class="flex items-center gap-2">
-                  <span class="inline-block w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(208,188,255,0.8)]"></span>
+                  <span class="inline-block w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(255, 255, 255, 0.15)]"></span>
                   <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary font-bold">Curated Flagship Portfolio</span>
                 </div>
                 <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Landmark Capital Developments</h2>
@@ -257,7 +195,7 @@
             <!-- 3-Column Luxury Project Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
               <!-- Flagship 1: Zablon Real Estate Skyscraper -->
-              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(139,92,246,0.25)] transition-all duration-300" data-category="curated commercial strategic">
+              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9),0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300" data-category="curated commercial strategic">
                 <div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
                   <img alt="Zablon Real Estate Tower Architectural Rendering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC9Tf1quz0aWqqKH67G0Y6j3ObwP0WZsQRxxLFIrbdojYjIoFHvWEr_COfD_FHZyu3508NHIBia6Ruzpf27qbzUJ7QV9VaAx38PEeMJxBC6JTyRU-IBgLO36iXaPZoyo9S33BE-owZ8AE_eef_8iFgQCujCskLzDnTTy1IOsw6_9io4O7kc1FVWTHqwxvgt3_OouKYc3MepbUS1CaywP7KJ1f9n0oDw_NOAExd2Ap8yQDrKOAmaAc"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
@@ -292,7 +230,7 @@
               </article>
 
               <!-- Flagship 2: Elilta Real Estate Mixed-Use -->
-              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(139,92,246,0.25)] transition-all duration-300" data-category="curated commercial residential">
+              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9),0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300" data-category="curated commercial residential">
                 <div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
                   <img alt="Elilta Real Estate Development Masterplan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxDuXbCwNPzRMvXmvwINjPgAY7QjlHHByVJle_X-8SyxJmcB1lgqIdKnNf4KOkBNA4vnzesZSO0gmxNBQEqSYJlQLZ_hGu5YgVW6o7zbEn6OX-GgSyHa1knmUWhHJYmY781PcQUMpFoaqJVhmU-1_6VstroCSRZ87ZpCpJZX69IPClU_Tk3Q0lL_BV8onIM3QO-VrORWgX5pr1SsJEcl0Vp7lOSSpjDTh3Mhy6LbSM0wgouKT-loI"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
@@ -327,7 +265,7 @@
               </article>
 
               <!-- Flagship 3: Abay Homes Centerville & Midtown -->
-              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(139,92,246,0.25)] transition-all duration-300" data-category="curated residential commercial">
+              <article class="project-card group flex flex-col rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9),0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300" data-category="curated residential commercial">
                 <div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
                   <img alt="Abay Homes Centerville &amp; Midtown Urban Master Plan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArf9Pj_eP8boTcn_ETqgMGaDB4vokoITDr-OG3OSpAx5GGF4pJTK_VYHZN15HYFrnabSgZrt1FXXXqjdeZOIoNSd1mFY9QlcVHBDhdec5pSVO0sRQVLGMjwT7M5c1aEPmhu3DfybUP8H6CTh5kFrKb-8Pc5-T1gQqRqCQ0Vm2rTNX7UZ6AKt-9GSgBPfC6OE9If1O551aVHB-VJSrdTWo5EaZAfRhKe1XXLXqETHyZvop02PdLwK0"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
@@ -371,7 +309,7 @@
             </div>
 
             <!-- PROJECT XX — MARKOS TRADING -->
-            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="residential strategic">
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(255, 255, 255, 0.08)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(255, 255, 255, 0.08)]" data-category="residential strategic">
               <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
                 <div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
                   <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Savina Royal Residence Gerji Addis Ababa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYeR7dwetAYcIqo4priepFatHOkt-MTxZ8mVOtOgdFOYFpVYSSLWw209zjRCdFF7Zx5W8lXJAnQsYhdqGBP62qqu544YTM4bcBSAbVTfozQaj4Cdx4idDnQb92BERkYnfmyTlxXL0LrBGuBMu-u4rKM0jTPWXq0YQk61iXWwuIZiAY5w1qMG8jn1GKeDN0ImlHX1CU8JUUgFv22GwjhsdLR1a4lTHHcaWuZwO4Kg"/>
@@ -422,7 +360,7 @@
             </article>
 
             <!-- PROJECT XIX — ARADA ATEKILT TERA S.C. -->
-            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial strategic">
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(255, 255, 255, 0.08)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(255, 255, 255, 0.08)]" data-category="commercial strategic">
               <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
                 <div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
                   <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Arada Atekilt Tera Commercial Complex" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9w9OaK7N1zS86Hdv0GqZSfjq5R-LoPsnxU-tJbJE1UWdIQ4mlbnHb2tGnQLM_cbNfiaPHxbXEw3Wu8IwHr-0zs5hDjgDNEVOvP6GvsNAKr6oBIVtV1gvnhXPQS8L33XKvCiLM0G-CJtD6VUL_x2yFxTtk_QV7C3KnJdn3nzXeEM9G9gNnIV5czZxBtTOw5gLofisfNT76_JLQx8q1br5F-TgVMz6dAKyVEXEKsg"/>
@@ -459,7 +397,7 @@
             </article>
 
             <!-- PROJECT XVIII — GENZEBE DIBABA REAL ESTATE -->
-            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential">
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(255, 255, 255, 0.08)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(255, 255, 255, 0.08)]" data-category="commercial residential">
               <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
                 <div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
                   <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Genzebe Dibaba Real Estate Tower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd5_IBJ4Q6jifbvZisXF4RF-Z75wBMUznr7sXc6h7V5wfqGUHIjXpgvy5ZjQXkLjMqZ6NpwADkYsGVK3qQPz7bxGBOiT6rlU1tEhbv2iwadwHW8QRQWNhpwuM99SaQfFB9z1NLCKkUoz_MaUEcTPI6QH49XuNUtbcifqf783wQq5WHKZY1Jj8VgAY-kWQnfwF6pcZL8vR717TdRWpQM8rJHy61mF5ENSRieEER0Q"/>
@@ -507,7 +445,7 @@
             </article>
 
             <!-- PROJECT XVII — OVID REAL ESTATE -->
-            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="residential strategic">
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(255, 255, 255, 0.08)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(255, 255, 255, 0.08)]" data-category="residential strategic">
               <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
                 <div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
                   <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="OVID Real Estate Masterplan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_gi_Wf47p7yKLtrCNP8Wm_J0LY-4LoTPaZ3ngdoRWDtBGHN4OCEyKpiT8TrPpeZi6w6cuLG8AlRAfgGgu-BkWmK0FXwciXUug8DjBhDRUpumalOiZjS6pzNlMXF12BkBjFAP6Lx3BdIsCv9hLt1kjSXwMaSB8Rhg1HA-TwoOq2hY_gDRNv5m7wU_KDXGvusvvbcAW8NcRMFfwOvDi7zG0CmDiSgzmW8UzsJN4vw"/>
@@ -530,7 +468,7 @@
   </div>
                     </div>
                     <div class="p-space-sm rounded-xl bg-gradient-to-r from-primary-container/20 via-surface-container-lowest to-surface-container-lowest flex items-center gap-space-md border border-primary/20">
-                      <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary font-headline-md shadow-[0_0_16px_rgba(208,188,255,0.4)]">
+                      <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary font-headline-md shadow-[0_0_16px_rgba(255, 255, 255, 0.15)]">
                         <span class="material-symbols-outlined text-[20px]">trending_up</span>
                       </div>
                       <div class="flex flex-col">
@@ -554,7 +492,7 @@
             </article>
 
             <!-- PROJECT XVI — BAMACON REAL ESTATE -->
-            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential">
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(255, 255, 255, 0.08)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(255, 255, 255, 0.08)]" data-category="commercial residential">
               <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
                 <div class="lg:col-span-6 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
                   <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Bamacon Real Estate Skyscraper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbUro3pCsNqOoComaj2YGLGebVb3kEB2D8529lLdlCcsvk8irAptp9sssXODS9osg9Z81PFYo7ncgJkGYphZ4QjcJu1aUOwrpJa2rQ8fAVBQ5BbBzsa8L2sLidFDe2L2sbVR7zB7sPP1CnNyo3chZjNUT16F_6u4acnNKtRLMGZZITXw8SUg91VFAJS6swpjQP3VwL5j5hj_naX3ytEZCwiiWqWPotBvHu_oVK7Q"/>
@@ -606,7 +544,7 @@
             </article>
 
             <!-- PROJECT XV — DEMA HOPE REAL ESTATE -->
-            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(139,92,246,0.12)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(139,92,246,0.25)]" data-category="commercial residential">
+            <article class="project-card group rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-surface-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_-5px_rgba(255, 255, 255, 0.08)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_35px_2px_rgba(255, 255, 255, 0.08)]" data-category="commercial residential">
               <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
                 <div class="lg:col-span-6 lg:order-2 relative overflow-hidden bg-surface-container-lowest min-h-[300px] lg:min-h-full">
                   <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Dema Hope Real Estate Tower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2RvjRIfmBz29bnU4n-z48qSZOM0QXE0kSi220uAQvPfCTbmoCH0dbnbZHTmIa-JRY0QdInZdClvHRFUunlEhF_80DN2962LEMXOCHOnhhV7I6_Y2OJkoPVRqgx3kkczNYt5m8Jyu9iOdsOEk10SDvm3BBj4AH9iktUscijS4IgSCf4xbEIf0detu7_rSVrREKlB8dQzXWcgYLKXdqrDn0LhOV-LeiBMEci6YflA"/>
@@ -830,11 +768,11 @@
 
   <!-- CASE STUDY INTERACTIVE MODAL (Opens ONLY when client clicks Case Study button) -->
   <div id="case-study-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-6 bg-black/85 backdrop-blur-xl transition-all duration-300 opacity-0 pointer-events-none" aria-hidden="true" role="dialog">
-    <div class="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-surface-container border border-surface-variant/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95),0_0_50px_rgba(139,92,246,0.25)] overflow-hidden transition-all duration-300" id="case-study-dialog">
+    <div class="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-surface-container border border-surface-variant/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95),0_0_30px_rgba(255,255,255,0.08)] overflow-hidden transition-all duration-300" id="case-study-dialog">
       <!-- Modal Header -->
       <div class="flex items-center justify-between px-space-md py- space-sm md:px-space-lg md:py-space-md border-b border-surface-variant/30 bg-surface-container-high/70 backdrop-blur-md shrink-0">
         <div class="flex items-center gap-2">
-          <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_10px_rgba(255,185,95,0.8)]"></span>
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_10px_rgba(255, 255, 255, 0.2)]"></span>
           <span id="modal-project-number" class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-bold">PROJECT CASE STUDY</span>
         </div>
         <button id="modal-close-btn" class="w-9 h-9 rounded-full bg-surface-variant/50 hover:bg-surface-variant text-on-surface hover:text-primary flex items-center justify-center transition-colors" aria-label="Close modal">
@@ -930,7 +868,7 @@
 
       <!-- Modal Footer Action Bar -->
       <div class="px-space-md py-space-sm md:px-space-lg md:py-space-md border-t border-surface-variant/30 bg-surface-container-high/70 backdrop-blur-md flex items-center justify-end shrink-0">
-        <a href="/booking" class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-inverse-primary shadow-sm hover:shadow border border-white/10 transition-all flex items-center justify-center gap-2">
+        <a href="/booking" class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg bg-white text-black font-label-md text-label-md font-extrabold hover:bg-zinc-200 shadow-sm border border-white/20 transition-all flex items-center justify-center gap-2">
           <span>Engage for Similar Advisory</span>
           <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
         </a>
@@ -1168,10 +1106,10 @@
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           filterButtons.forEach(b => {
-            b.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_20px_rgba(160,120,255,0.4)]');
+            b.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-sm border border-white/20');
             b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
           });
-          btn.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_20px_rgba(160,120,255,0.4)]');
+          btn.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-sm border border-white/20');
           btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
 
           const filterValue = btn.getAttribute('data-filter');
