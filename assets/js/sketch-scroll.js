@@ -146,6 +146,8 @@
     }
 
     gsap.registerPlugin(ScrollTrigger);
+    // Ignore mobile address bar hide/show to prevent stutter on iOS/Android
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     const scrubber = { frame: 0 };
 
@@ -156,7 +158,7 @@
         trigger: document.documentElement,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.4, // Smoothed scrubbing prevents mousewheel jitter
+        scrub: 0.35, // Smooth responsive scrubbing
         onUpdate: () => {
           const frameIndex = Math.round(scrubber.frame);
           drawFrame(frameIndex);
@@ -186,8 +188,14 @@
     }, { passive: true });
   }
 
-  // Initial setup
-  window.addEventListener('resize', resizeCanvas, { passive: true });
+  // Initial setup with mobile-optimized resize listener (prevents address bar jitter)
+  let lastWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (Math.abs(window.innerWidth - lastWidth) > 10) {
+      lastWidth = window.innerWidth;
+      resizeCanvas();
+    }
+  }, { passive: true });
   resizeCanvas();
 
   // Load first batch immediately
