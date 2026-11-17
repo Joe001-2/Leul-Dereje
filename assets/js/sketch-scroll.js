@@ -1,13 +1,13 @@
 /**
  * Scroll-Driven Architectural Sketch Canvas
  * Renders a 240-frame 1280x720 WebP sequence with silky sub-frame alpha blending,
- * inertial RAF smoothing, and predictive multi-lane preloading.
+ * continuous RAF momentum, and instant passive native scroll response.
  */
 (function () {
   'use strict';
 
   const TOTAL_FRAMES = 240;
-  const INITIAL_BATCH_SIZE = 40; // Preload upfront for instantaneous first interaction
+  const INITIAL_BATCH = 15; // Fast initial burst so first frames are ready in milliseconds
   const FRAME_PATH = (index) =>
     `assets/sequence/frame_${String(index).padStart(4, '0')}.webp`;
 
@@ -21,7 +21,7 @@
   const images = new Array(TOTAL_FRAMES);
   const loadingStatus = new Uint8Array(TOTAL_FRAMES); // 0 = unrequested, 1 = loading, 2 = loaded, 3 = failed
 
-  // Cover math cache (updated only on resize)
+  // Cached layout metrics
   let coverDx = 0;
   let coverDy = 0;
   let coverDw = 1280;
@@ -32,7 +32,6 @@
   // Smoothing Playhead State
   let targetFrame = 0;
   let currentFrame = 0;
-  let isScrollTriggerReady = false;
   let rafId = null;
 
   /**
@@ -49,10 +48,10 @@
   }
 
   /**
-   * Resize canvas matching window and capped devicePixelRatio for maximum FPS
+   * Resize canvas matching window and devicePixelRatio
    */
   function resizeCanvas() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.75); // 1.75 max balances retina crispness with 60fps GPU fillrate
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
     const w = window.innerWidth;
     const h = window.innerHeight;
 
@@ -66,10 +65,6 @@
 
     updateCoverMetrics();
     renderSubFrame(currentFrame);
-
-    if (typeof ScrollTrigger !== 'undefined' && isScrollTriggerReady) {
-      ScrollTrigger.refresh();
-    }
   }
 
   /**
@@ -78,12 +73,12 @@
   function loadSingleFrame(index) {
     if (index < 0 || index >= TOTAL_FRAMES) return Promise.resolve(null);
     if (loadingStatus[index] === 2) return Promise.resolve(images[index]);
-    if (loadingStatus[index] === 1) return Promise.resolve(null); // Already in-flight
+    if (loadingStatus[index] === 1) return Promise.resolve(null);
 
     loadingStatus[index] = 1;
     return new Promise((resolve) => {
       const img = new Image();
-      img.src = FRAME_PATH(index + 1); // 1-indexed files
+      img.src = FRAME_PATH(index + 1);
       img.onload = () => {
         images[index] = img;
         loadingStatus[index] = 2;
@@ -136,7 +131,7 @@
     ctx.globalAlpha = 1.0;
     ctx.drawImage(baseImg, coverDx, coverDy, coverDw, coverDh);
 
-    // If positioned between two frames and next frame is available, cross-fade to eliminate stepped snapping
+    // Cross-fade to next frame when transitioning
     if (ceilIdx !== floorIdx && fraction > 0.02) {
       const nextImg = (loadingStatus[ceilIdx] === 2 && images[ceilIdx]) ? images[ceilIdx] : null;
       if (nextImg) {
@@ -156,8 +151,8 @@
       const absDiff = Math.abs(diff);
 
       if (absDiff > 0.002) {
-        // Smooth exponential damping (lerp factor: 0.12 = responsive yet silk-smooth)
-        currentFrame += diff * 0.12;
+        // Damped momentum (lerp factor: 0.10 for organic, non-jerky glide)
+        currentFrame += diff * 0.10;
         renderSubFrame(currentFrame);
       } else if (absDiff > 0) {
         currentFrame = targetFrame;
@@ -175,7 +170,7 @@
    * Prioritize loading frames surrounding the user's current scroll area
    */
   function prioritizeFramesNear(centerIndex) {
-    const RADIUS = 18;
+    const RADIUS = 20;
     const start = Math.max(0, centerIndex - 5);
     const end = Math.min(TOTAL_FRAMES, centerIndex + RADIUS);
 
@@ -187,11 +182,30 @@
   }
 
   /**
-   * High-speed parallel background stream for all remaining frames
+   * Native, non-blocking scroll progress calculator
+   * Uses 100% passive listeners so native touch and trackpad scrolling is NEVER locked.
+   */
+  function updateScrollProgress() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const docHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    const maxScroll = docHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? Math.min(Math.max(scrollY / maxScroll, 0), 1) : 0;
+
+    targetFrame = progress * (TOTAL_FRAMES - 1);
+    prioritizeFramesNear(Math.round(targetFrame));
+  }
+
+  /**
+   * High-speed parallel background stream for remaining frames
    */
   function streamAllRemainingFrames() {
-    let nextIndex = INITIAL_BATCH_SIZE;
-    const CONCURRENCY = 6; // 6 parallel network lanes
+    let nextIndex = INITIAL_BATCH;
+    const CONCURRENCY = 6;
 
     function pumpLane() {
       if (nextIndex >= TOTAL_FRAMES) return;
@@ -210,79 +224,37 @@
     }
   }
 
-  /**
-   * Setup GSAP ScrollTrigger timeline
-   */
-  function initGSAP() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-      setupFallbackScrollListener();
-      return;
-    }
+  // Attach passive scroll listeners immediately — ZERO DELAY, ZERO BLOCKING
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('touchmove', updateScrollProgress, { passive: true });
 
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.config({ ignoreMobileResize: true });
-
-    const timelineTracker = { progress: 0 };
-
-    gsap.to(timelineTracker, {
-      progress: 1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 0.8, // 0.8s smooth weighted scroll scrub
-        onUpdate: (self) => {
-          targetFrame = self.progress * (TOTAL_FRAMES - 1);
-          prioritizeFramesNear(Math.round(targetFrame));
-        }
-      }
-    });
-
-    isScrollTriggerReady = true;
-  }
-
-  /**
-   * Fallback scroll listener if GSAP CDN fails
-   */
-  function setupFallbackScrollListener() {
-    window.addEventListener('scroll', () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = maxScroll > 0 ? Math.min(Math.max(window.scrollY / maxScroll, 0), 1) : 0;
-      targetFrame = progress * (TOTAL_FRAMES - 1);
-      prioritizeFramesNear(Math.round(targetFrame));
-    }, { passive: true });
-  }
-
-  // Window resize debouncer for mobile address bar stability
+  // Mobile address bar friendly resize listener
   let lastWidth = window.innerWidth;
   window.addEventListener('resize', () => {
     if (Math.abs(window.innerWidth - lastWidth) > 12) {
       lastWidth = window.innerWidth;
       resizeCanvas();
     }
+    updateScrollProgress();
   }, { passive: true });
 
-  // Initial layout sizing
+  // Initial setup
   resizeCanvas();
+  updateScrollProgress();
+  startRenderLoop();
 
-  // Load first critical batch upfront for instant interactive readiness
-  const initialLoads = [];
-  for (let i = 0; i < Math.min(INITIAL_BATCH_SIZE, TOTAL_FRAMES); i++) {
-    initialLoads.push(loadSingleFrame(i));
+  // Load first frame immediately and render
+  loadSingleFrame(0).then(() => {
+    renderSubFrame(0);
+  });
+
+  // Load first burst in parallel, then stream the rest
+  const burstLoads = [];
+  for (let i = 0; i < Math.min(INITIAL_BATCH, TOTAL_FRAMES); i++) {
+    burstLoads.push(loadSingleFrame(i));
   }
 
-  Promise.all(initialLoads).then(() => {
-    // Render initial frame
-    renderSubFrame(0);
-
-    // Launch continuous 60fps RAF loop
-    startRenderLoop();
-
-    // Wire up ScrollTrigger
-    initGSAP();
-
-    // Stream remaining frames through multi-lane background loader
+  Promise.all(burstLoads).then(() => {
     streamAllRemainingFrames();
   });
 
