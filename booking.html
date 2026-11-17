@@ -13,6 +13,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/images/icon-512.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#121316">
   <meta property="og:type" content="website">
@@ -181,14 +183,14 @@
           </div>
         </a>
       </div>
-      <nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold">
-        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="/">Home</a>
-        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-and-experience" href="/about">About &amp; Experience</a>
-        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects-showcase" href="/projects-showcase">Portfolio &amp; Case Studies</a>
-        <a aria-current="page" class="transition-colors text-primary font-bold" data-path="booking" href="/booking">Book Consultation</a>
+      <nav class="hidden lg:flex items-center gap-2" data-active-classes="bg-white text-black font-extrabold shadow-sm">
+        <a class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-colors text-sm font-semibold" data-path="home" href="/">Home</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-colors text-sm font-semibold" data-path="about-and-experience" href="/about">About &amp; Experience</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-colors text-sm font-semibold" data-path="projects-showcase" href="/projects-showcase">Portfolio &amp; Case Studies</a>
+        <a aria-current="page" class="px-3.5 py-1.5 rounded-lg bg-white text-black font-extrabold shadow-sm transition-colors text-sm" data-path="booking" href="/booking">Book Consultation</a>
       </nav>
       <div class="flex items-center gap-space-md shrink-0">
-        <a class="px-3.5 sm:px-space-md py-2 sm:py-space-sm rounded-lg bg-primary text-on-primary font-label-lg text-xs sm:text-label-lg shadow-sm hover:shadow transition-all font-bold whitespace-nowrap" data-path="book-advisory" href="/booking">Book Advisory</a>
+        <a class="px-4 py-2 rounded-xl bg-white text-black font-extrabold text-xs sm:text-sm shadow-sm hover:bg-zinc-200 transition-all whitespace-nowrap" data-path="book-advisory" href="/booking">Book Advisory</a>
       </div>
     </div>
   </header>
@@ -531,24 +533,24 @@
   </footer>
 
   <!-- MOBILE BOTTOM APP BAR (FLOATING GLASS PILL) -->
-  <nav class="fixed bottom-4 left-4 right-4 z-50 lg:hidden bg-[#121316]/90 backdrop-blur-2xl border border-white/15 rounded-2xl p-2 shadow-[0_10px_35px_rgba(0,0,0,0.6)] flex items-center justify-around pb-safe">
-    <a href="/" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors text-on-surface-variant hover:text-on-surface">
-      <span class="material-symbols-outlined text-[20px]">home</span>
-      <span class="text-[10px] font-semibold tracking-tight mt-0.5">Home</span>
-    </a>
-    <a href="/about" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors text-on-surface-variant hover:text-on-surface">
-      <span class="material-symbols-outlined text-[20px]">person</span>
-      <span class="text-[10px] font-semibold tracking-tight mt-0.5">About</span>
-    </a>
-    <a href="/projects-showcase" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors text-on-surface-variant hover:text-on-surface">
-      <span class="material-symbols-outlined text-[20px]">apartment</span>
-      <span class="text-[10px] font-semibold tracking-tight mt-0.5">Projects</span>
-    </a>
-    <a href="/booking" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors bg-primary/15 text-primary">
-      <span class="material-symbols-outlined text-[20px]">calendar_month</span>
-      <span class="text-[10px] font-bold tracking-tight mt-0.5">Booking</span>
-    </a>
-  </nav>
+  <nav class="fixed bottom-4 left-4 right-4 z-50 lg:hidden bg-[#121316]/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-2 shadow-[0_10px_35px_rgba(0,0,0,0.8)] flex items-center justify-around pb-safe">
+  <a href="/" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors text-zinc-400 hover:text-white">
+    <span class="material-symbols-outlined text-[20px]">home</span>
+    <span class="text-[10px] font-semibold tracking-tight mt-0.5">Home</span>
+  </a>
+  <a href="/about" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors text-zinc-400 hover:text-white">
+    <span class="material-symbols-outlined text-[20px]">person</span>
+    <span class="text-[10px] font-semibold tracking-tight mt-0.5">About</span>
+  </a>
+  <a href="/projects-showcase" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors text-zinc-400 hover:text-white">
+    <span class="material-symbols-outlined text-[20px]">apartment</span>
+    <span class="text-[10px] font-semibold tracking-tight mt-0.5">Projects</span>
+  </a>
+  <a href="/booking" class="flex flex-col items-center justify-center py-1.5 px-4 rounded-xl bg-white text-black font-extrabold shadow-sm">
+    <span class="material-symbols-outlined text-[20px] text-black font-bold">calendar_month</span>
+    <span class="text-[10px] font-extrabold tracking-tight mt-0.5 text-black">Booking</span>
+  </a>
+</nav>
 
   <script>
     function handleConsultationSubmit(event) {
