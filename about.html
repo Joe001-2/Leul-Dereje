@@ -2,10 +2,8 @@
 
 <html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed-variant": "#653e00", "surface-container-high": "#292a2d", "surface-dim": "#121316", "surface-container-low": "#1b1b1f", "secondary": "#ffb95f", "outline-variant": "#494454", "primary-fixed": "#e9ddff", "surface-variant": "#343538", "on-secondary-fixed": "#2a1700", "surface-container-lowest": "#0d0e11", "tertiary-container": "#b175ec", "on-surface": "#e3e2e6", "surface-container": "#1f1f23", "on-secondary-container": "#5b3800", "error": "#ffb4ab", "primary-fixed-dim": "#d0bcff", "inverse-surface": "#e3e2e6", "on-tertiary-fixed": "#2c0051", "inverse-on-surface": "#2f3034", "tertiary-fixed": "#f0dbff", "on-tertiary-fixed-variant": "#62259b", "tertiary-fixed-dim": "#ddb8ff", "on-secondary": "#472a00", "error-container": "#93000a", "on-background": "#e3e2e6", "outline": "#958ea0", "primary": "#d0bcff", "background": "#121316", "surface-tint": "#d0bcff", "inverse-primary": "#6d3bd7", "secondary-fixed": "#ffddb8", "surface": "#121316", "on-primary": "#3c0091", "on-primary-fixed": "#23005c", "on-primary-container": "#340080", "secondary-container": "#ee9800", "on-surface-variant": "#cbc3d7", "on-primary-fixed-variant": "#5516be", "on-error-container": "#ffdad6", "secondary-fixed-dim": "#ffb95f", "surface-container-highest": "#343538", "tertiary": "#ddb8ff", "on-tertiary": "#490081", "on-tertiary-container": "#400071", "on-error": "#690005", "surface-bright": "#38393c", "primary-container": "#a078ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-xl": "2.5rem", "gutter-mobile": "1rem", "space-md": "1rem", "space-sm": "0.5rem", "margin": "3rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "margin-mobile": "1.25rem" }, "fontFamily": { "label-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display": ["Syne"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-lg": ["Syne"], "headline-lg-mobile": ["Syne"], "body-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "display-mobile": ["Syne"], "headline-sm": ["Syne"], "headline-md": ["Syne"] }, "fontSize": { "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }], "title-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["17px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }], "display-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["22px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{min-height:100vh;margin:0;padding:0;background-color:#121316;color:#e3e2e6;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
-@keyframes insightDrawerAnim{0%{opacity:0;transform:translateY(8px) scale(0.985);}100%{opacity:1;transform:translateY(0) scale(1);}}
-.animate-insight-swap{animation:insightDrawerAnim 0.32s cubic-bezier(0.16,1,0.3,1) forwards;}
-@keyframes insightInitialGlow{0%{box-shadow:0 0 0 rgba(208,188,255,0);}50%{box-shadow:0 10px 40px -5px rgba(208,188,255,0.35);}100%{box-shadow:0 12px 35px rgba(0,0,0,0.5);}}
-.animate-insight-load{animation:insightDrawerAnim 0.6s cubic-bezier(0.16,1,0.3,1) 0.15s both,insightInitialGlow 1.4s ease-out 0.2s;}
+@keyframes slideInFromRight{0%{opacity:0;transform:translateX(36px);}100%{opacity:1;transform:translateX(0);}}
+.animate-slide-left{animation:slideInFromRight 0.36s cubic-bezier(0.16,1,0.3,1) forwards;}
 </style><style>
     body {
       min-height: max(884px, 100dvh);
@@ -135,17 +133,13 @@
 <span>Market Feasibility</span>
 </button>
 </div>
-<!-- Live Domain Insight Drawer (Enhanced Visibility & Smooth Dynamic Animation) -->
-<div class="rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-surface-container via-surface-container-high to-surface-container-low border-2 border-primary/40 shadow-[0_12px_35px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)] relative overflow-hidden transition-all duration-300 animate-insight-load" id="spec-insight-box">
-  <!-- Ambient Backlight Accents -->
-  <div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-primary/20 blur-2xl pointer-events-none"></div>
-  <div class="absolute -left-8 -bottom-8 w-44 h-44 rounded-full bg-secondary/15 blur-2xl pointer-events-none"></div>
-  
-  <div class="relative z-10 flex items-start gap-3.5 sm:gap-4.5" id="spec-insight-content">
-    <div id="spec-insight-icon-container" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-secondary/20 border border-secondary/40 text-secondary flex items-center justify-center shrink-0 shadow-md">
+<!-- Live Domain Insight Drawer (Constant Solid Color Background & Right-to-Left Slide Animation) -->
+<div class="rounded-2xl p-5 sm:p-6 bg-[#18191e] border border-white/10 shadow-lg relative overflow-hidden transition-colors" id="spec-insight-box">
+  <div class="flex items-start gap-3.5 sm:gap-4.5" id="spec-insight-content">
+    <div id="spec-insight-icon-container" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 text-primary flex items-center justify-center shrink-0 shadow-sm">
       <span id="spec-insight-icon" class="material-symbols-outlined text-[26px] sm:text-[30px]">verified</span>
     </div>
-    <div class="flex flex-col min-w-0">
+    <div class="flex flex-col min-w-0 flex-1 overflow-hidden animate-slide-left" id="spec-insight-text-wrapper">
       <div class="flex items-center gap-2 mb-1">
         <span class="text-[11px] sm:text-xs uppercase tracking-widest text-secondary font-extrabold">Domain Advisory Scope</span>
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -172,21 +166,21 @@
 <!-- Item 1: Leul Consults -->
 <div class="relative group">
 <div class="absolute -left-[25px] top-6 w-3.5 h-3.5 rounded-full bg-primary border-2 border-[#121316] shadow-[0_0_3px_rgba(208,188,255,0.25)]"></div>
-<div class="rounded-2xl bg-surface-container-low p-5 sm:p-7 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-3 sm:space-y-4">
+<div class="rounded-2xl bg-surface-container-low p-5 sm:p-6 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-2.5 sm:space-y-3">
 <div class="flex flex-wrap items-center justify-between gap-2">
-<span class="text-xs sm:text-sm px-3 py-1 rounded-lg bg-primary text-on-primary font-extrabold tracking-wide">2023 – PRESENT</span>
-<span class="text-xs sm:text-sm text-secondary font-bold">Active Advisory</span>
+<span class="text-xs px-2.5 py-0.5 rounded-md bg-primary text-on-primary font-extrabold tracking-wide">2023 – PRESENT</span>
+<span class="text-xs text-secondary font-bold">Active Advisory</span>
 </div>
-<div class="flex items-center gap-4 sm:gap-5">
-  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary-container/30 to-primary/10 border border-primary/30 text-primary flex flex-col items-center justify-center shadow-md shrink-0">
-    <span class="font-display font-black text-2xl sm:text-3xl text-primary tracking-tighter">LC</span>
+<div class="flex items-center gap-3.5 sm:gap-4">
+  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-primary-container/30 to-primary/10 border border-primary/30 text-primary flex flex-col items-center justify-center shadow-md shrink-0">
+    <span class="font-display font-black text-xl sm:text-2xl text-primary tracking-tighter">LC</span>
   </div>
   <div>
-    <h4 class="font-display text-lg sm:text-2xl text-on-surface font-extrabold tracking-tight">LEUL CONSULTS</h4>
-    <p class="text-sm sm:text-base font-bold text-primary">Senior Real Estate Consultant</p>
+    <h4 class="font-title-md text-sm sm:text-base text-on-surface font-bold tracking-tight">LEUL CONSULTS</h4>
+    <p class="text-xs sm:text-sm font-semibold text-primary">Senior Real Estate Consultant</p>
   </div>
 </div>
-<p class="text-sm sm:text-base text-on-surface font-medium leading-relaxed">
+<p class="text-xs sm:text-sm text-on-surface font-medium leading-relaxed">
   Directly advising developers, corporate investors, and landowners. Overseeing end-to-end master planning, corporate structuring, legal liaising, and precision sales-marketing strategy.
 </p>
 </div>
@@ -194,21 +188,21 @@
 <!-- Item 2: Zablon Real Estate -->
 <div class="relative group">
 <div class="absolute -left-[25px] top-6 w-3.5 h-3.5 rounded-full bg-surface-container-highest border-2 border-[#121316] ring-2 ring-primary/30"></div>
-<div class="rounded-2xl bg-surface-container-low p-5 sm:p-7 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-3 sm:space-y-4">
+<div class="rounded-2xl bg-surface-container-low p-5 sm:p-6 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-2.5 sm:space-y-3">
 <div class="flex flex-wrap items-center justify-between gap-2">
-<span class="text-xs sm:text-sm px-3 py-1 rounded-lg bg-surface-container-high text-on-surface font-extrabold">2021 – 2023</span>
-<span class="text-xs sm:text-sm text-outline font-bold">Executive Role</span>
+<span class="text-xs px-2.5 py-0.5 rounded-md bg-surface-container-high text-on-surface font-extrabold">2021 – 2023</span>
+<span class="text-xs text-outline font-bold">Executive Role</span>
 </div>
-<div class="flex items-center gap-4 sm:gap-5">
-  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2.5 flex items-center justify-center shadow-md shrink-0 border border-white/20">
+<div class="flex items-center gap-3.5 sm:gap-4">
+  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-md shrink-0 border border-white/20">
     <img src="assets/images/zablon-logo.png" alt="Zablon Real Estate Logo" class="max-h-full max-w-full object-contain">
   </div>
   <div>
-    <h4 class="font-display text-lg sm:text-2xl text-on-surface font-extrabold tracking-tight">ZABLON REAL ESTATE</h4>
-    <p class="text-sm sm:text-base font-bold text-primary-fixed-dim">General Manager</p>
+    <h4 class="font-title-md text-sm sm:text-base text-on-surface font-bold tracking-tight">ZABLON REAL ESTATE</h4>
+    <p class="text-xs sm:text-sm font-semibold text-primary-fixed-dim">General Manager</p>
   </div>
 </div>
-<p class="text-sm sm:text-base text-on-surface font-medium leading-relaxed">
+<p class="text-xs sm:text-sm text-on-surface font-medium leading-relaxed">
   Spearheaded organizational genesis from corporate inception. Secured prime urban land parcels, built operational and engineering departments, and formulated design and capital allocation strategies.
 </p>
 </div>
@@ -216,57 +210,57 @@
 <!-- Item 3: Metropolitan Real Estate Progression -->
 <div class="relative group">
 <div class="absolute -left-[25px] top-6 w-3.5 h-3.5 rounded-full bg-surface-container-highest border-2 border-[#121316]"></div>
-<div class="rounded-2xl bg-surface-container-low p-5 sm:p-7 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-3 sm:space-y-4">
+<div class="rounded-2xl bg-surface-container-low p-5 sm:p-6 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-2.5 sm:space-y-3">
 <div class="flex flex-wrap items-center justify-between gap-2">
-<span class="text-xs sm:text-sm px-3 py-1 rounded-lg bg-surface-container-high text-on-surface font-extrabold">2015 – 2021</span>
-<span class="text-xs sm:text-sm text-outline font-bold">6-Year Tenure</span>
+<span class="text-xs px-2.5 py-0.5 rounded-md bg-surface-container-high text-on-surface font-extrabold">2015 – 2021</span>
+<span class="text-xs text-outline font-bold">6-Year Tenure</span>
 </div>
-<div class="flex items-center gap-4 sm:gap-5">
-  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2.5 flex items-center justify-center shadow-md shrink-0 border border-white/20">
+<div class="flex items-center gap-3.5 sm:gap-4">
+  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-md shrink-0 border border-white/20">
     <img src="assets/images/metropolitan-logo.webp" alt="Metropolitan Real Estate Logo" class="max-h-full max-w-full object-contain">
   </div>
   <div>
-    <h4 class="font-display text-lg sm:text-2xl text-on-surface font-extrabold tracking-tight">METROPOLITAN REAL ESTATE</h4>
-    <p class="text-sm sm:text-base font-bold text-primary-fixed-dim">Director of Marketing &amp; Sales</p>
+    <h4 class="font-title-md text-sm sm:text-base text-on-surface font-bold tracking-tight">METROPOLITAN REAL ESTATE</h4>
+    <p class="text-xs sm:text-sm font-semibold text-primary-fixed-dim">Director of Marketing &amp; Sales</p>
   </div>
 </div>
-<p class="text-sm sm:text-base text-on-surface font-medium leading-relaxed mb-2">
+<p class="text-xs sm:text-sm text-on-surface font-medium leading-relaxed mb-2">
   Remarkable meritocratic ascension mastering every tier of corporate property development:
 </p>
 <!-- Stepped career tags -->
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs sm:text-sm px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-semibold border border-white/5">Front Desk Reception</span>
-<span class="material-symbols-outlined text-[16px] text-outline self-center">chevron_right</span>
-<span class="text-xs sm:text-sm px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-semibold border border-white/5">Liaison Officer</span>
-<span class="material-symbols-outlined text-[16px] text-outline self-center">chevron_right</span>
-<span class="text-xs sm:text-sm px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-semibold border border-white/5">Land Manager</span>
-<span class="material-symbols-outlined text-[16px] text-outline self-center">chevron_right</span>
-<span class="text-xs sm:text-sm px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-semibold border border-white/5">Business Manager</span>
-<span class="material-symbols-outlined text-[16px] text-outline self-center">chevron_right</span>
-<span class="text-xs sm:text-sm px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-semibold border border-white/5">Deputy Manager</span>
-<span class="material-symbols-outlined text-[16px] text-outline self-center">chevron_right</span>
-<span class="text-xs sm:text-sm px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-bold shadow-sm">Sales &amp; Mktg Director</span>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-surface-container text-on-surface font-semibold border border-white/5">Front Desk Reception</span>
+<span class="material-symbols-outlined text-[14px] text-outline self-center">chevron_right</span>
+<span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-surface-container text-on-surface font-semibold border border-white/5">Liaison Officer</span>
+<span class="material-symbols-outlined text-[14px] text-outline self-center">chevron_right</span>
+<span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-surface-container text-on-surface font-semibold border border-white/5">Land Manager</span>
+<span class="material-symbols-outlined text-[14px] text-outline self-center">chevron_right</span>
+<span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-surface-container text-on-surface font-semibold border border-white/5">Business Manager</span>
+<span class="material-symbols-outlined text-[14px] text-outline self-center">chevron_right</span>
+<span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-surface-container text-on-surface font-semibold border border-white/5">Deputy Manager</span>
+<span class="material-symbols-outlined text-[14px] text-outline self-center">chevron_right</span>
+<span class="text-[11px] sm:text-xs px-3 py-1 rounded-md bg-primary-container text-on-primary font-bold shadow-sm">Sales &amp; Mktg Director</span>
 </div>
 </div>
 </div>
 <!-- Item 4: Eco Bags Manufacturing PLC -->
 <div class="relative group">
 <div class="absolute -left-[25px] top-6 w-3.5 h-3.5 rounded-full bg-surface-container-highest border-2 border-[#121316]"></div>
-<div class="rounded-2xl bg-surface-container-low p-5 sm:p-7 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-3 sm:space-y-4">
+<div class="rounded-2xl bg-surface-container-low p-5 sm:p-6 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-2.5 sm:space-y-3">
 <div class="flex flex-wrap items-center justify-between gap-2">
-<span class="text-xs sm:text-sm px-3 py-1 rounded-lg bg-surface-container-high text-on-surface font-extrabold">2016 – 2017</span>
-<span class="text-xs sm:text-sm text-outline font-bold">Entrepreneurial Venture</span>
+<span class="text-xs px-2.5 py-0.5 rounded-md bg-surface-container-high text-on-surface font-extrabold">2016 – 2017</span>
+<span class="text-xs text-outline font-bold">Entrepreneurial Venture</span>
 </div>
-<div class="flex items-center gap-4 sm:gap-5">
-  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shadow-md shrink-0">
-    <span class="material-symbols-outlined text-[32px] sm:text-[38px]">eco</span>
+<div class="flex items-center gap-3.5 sm:gap-4">
+  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shadow-md shrink-0">
+    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">eco</span>
   </div>
   <div>
-    <h4 class="font-display text-lg sm:text-2xl text-on-surface font-extrabold tracking-tight">ECO BAGS MANUFACTURING PLC</h4>
-    <p class="text-sm sm:text-base font-bold text-primary-fixed-dim">Co-Founder &amp; General Manager</p>
+    <h4 class="font-title-md text-sm sm:text-base text-on-surface font-bold tracking-tight">ECO BAGS MANUFACTURING PLC</h4>
+    <p class="text-xs sm:text-sm font-semibold text-primary-fixed-dim">Co-Founder &amp; General Manager</p>
   </div>
 </div>
-<p class="text-sm sm:text-base text-on-surface font-medium leading-relaxed">
+<p class="text-xs sm:text-sm text-on-surface font-medium leading-relaxed">
   Founded and directed sustainable industrial packaging operations replacing non-biodegradable plastics with solution-oriented commercial alternatives.
 </p>
 </div>
@@ -274,21 +268,21 @@
 <!-- Item 5: CALS & X-Hub -->
 <div class="relative group">
 <div class="absolute -left-[25px] top-6 w-3.5 h-3.5 rounded-full bg-surface-container-highest border-2 border-[#121316]"></div>
-<div class="rounded-2xl bg-surface-container-low p-5 sm:p-7 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-3 sm:space-y-4">
+<div class="rounded-2xl bg-surface-container-low p-5 sm:p-6 border border-surface-variant/40 shadow-lg hover:border-primary/40 hover:bg-surface-container/70 transition-all space-y-2.5 sm:space-y-3">
 <div class="flex flex-wrap items-center justify-between gap-2">
-<span class="text-xs sm:text-sm px-3 py-1 rounded-lg bg-surface-container-high text-on-surface font-extrabold">2015 – 2018</span>
-<span class="text-xs sm:text-sm text-outline font-bold">Incubation</span>
+<span class="text-xs px-2.5 py-0.5 rounded-md bg-surface-container-high text-on-surface font-extrabold">2015 – 2018</span>
+<span class="text-xs text-outline font-bold">Incubation</span>
 </div>
-<div class="flex items-center gap-4 sm:gap-5">
-  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-secondary/15 border border-secondary/30 text-secondary flex items-center justify-center shadow-md shrink-0">
-    <span class="material-symbols-outlined text-[32px] sm:text-[38px]">rocket_launch</span>
+<div class="flex items-center gap-3.5 sm:gap-4">
+  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-secondary/15 border border-secondary/30 text-secondary flex items-center justify-center shadow-md shrink-0">
+    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">rocket_launch</span>
   </div>
   <div>
-    <h4 class="font-display text-lg sm:text-2xl text-on-surface font-extrabold tracking-tight">CALS (CENTER FOR AFRICAN LEADERSHIP)</h4>
-    <p class="text-sm sm:text-base font-bold text-primary-fixed-dim">Hub Representative — X-HUB</p>
+    <h4 class="font-title-md text-sm sm:text-base text-on-surface font-bold tracking-tight">CALS (CENTER FOR AFRICAN LEADERSHIP)</h4>
+    <p class="text-xs sm:text-sm font-semibold text-primary-fixed-dim">Hub Representative — X-HUB</p>
   </div>
 </div>
-<p class="text-sm sm:text-base text-on-surface font-medium leading-relaxed">
+<p class="text-xs sm:text-sm text-on-surface font-medium leading-relaxed">
   Incubated forward-looking tech and commercial ventures, matching innovative startups with accredited angel networks and private equity.
 </p>
 </div>
@@ -429,40 +423,88 @@
       }
     };
 
+    const domainKeys = Object.keys(chipData);
     const buttons = document.querySelectorAll('#spec-chip-container .spec-chip');
-    const contentEl = document.getElementById('spec-insight-content');
+    const textWrapper = document.getElementById('spec-insight-text-wrapper');
     const titleEl = document.getElementById('spec-insight-title');
     const descEl = document.getElementById('spec-insight-desc');
     const iconEl = document.getElementById('spec-insight-icon');
+    const boxEl = document.getElementById('spec-insight-box');
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Reset states
-        buttons.forEach(b => {
-          b.className = 'spec-chip group px-3.5 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all duration-200 hover:bg-surface-container-high';
-          const icon = b.querySelector('.material-symbols-outlined');
-          if (icon && icon.textContent === 'verified') icon.textContent = 'check_circle';
-        });
+    let currentIndex = 0;
+    let autoTimer = null;
 
-        // Set active state
-        btn.className = 'spec-chip group px-3.5 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm border border-white/10 transition-all duration-200';
-        
-        const label = btn.querySelector('span:not(.material-symbols-outlined)').textContent.trim();
-        const fullKey = Object.keys(chipData).find(k => label.includes(k.split(' ')[0])) || label;
+    function activateDomain(index, isUserClick = false) {
+      if (index < 0 || index >= domainKeys.length) return;
+      currentIndex = index;
+      const key = domainKeys[index];
+      const data = chipData[key];
 
-        if (chipData[fullKey]) {
-          // Trigger smooth swap animation
-          if (contentEl) {
-            contentEl.classList.remove('animate-insight-swap');
-            void contentEl.offsetWidth; // Force DOM reflow
-            contentEl.classList.add('animate-insight-swap');
-          }
-          if (titleEl) titleEl.textContent = fullKey;
-          if (descEl) descEl.textContent = chipData[fullKey].desc;
-          if (iconEl) iconEl.textContent = chipData[fullKey].icon;
+      // Update button visual states
+      buttons.forEach((btn, idx) => {
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (idx === index) {
+          btn.className = 'spec-chip group px-3.5 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm border border-white/10 transition-all duration-200';
+          if (icon) icon.textContent = data.icon;
+        } else {
+          btn.className = 'spec-chip group px-3.5 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all duration-200 hover:bg-surface-container-high';
+          const btnLabel = btn.querySelector('span:not(.material-symbols-outlined)')?.textContent.trim() || '';
+          const originalKey = domainKeys.find(k => btnLabel.includes(k.split(' ')[0])) || key;
+          if (icon && chipData[originalKey]) icon.textContent = chipData[originalKey].icon;
         }
       });
+
+      // Slide texts from right to left
+      if (textWrapper) {
+        textWrapper.classList.remove('animate-slide-left');
+        void textWrapper.offsetWidth; // Force DOM reflow to re-trigger keyframe
+        textWrapper.classList.add('animate-slide-left');
+      }
+
+      if (titleEl) titleEl.textContent = key;
+      if (descEl) descEl.textContent = data.desc;
+      if (iconEl) iconEl.textContent = data.icon;
+
+      if (isUserClick) {
+        restartTimer();
+      }
+    }
+
+    function startTimer() {
+      stopTimer();
+      autoTimer = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % domainKeys.length;
+        activateDomain(nextIndex, false);
+      }, 3500); // Changes smoothly every 3.5 seconds
+    }
+
+    function stopTimer() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function restartTimer() {
+      stopTimer();
+      startTimer();
+    }
+
+    // Attach click handlers to chips
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        activateDomain(idx, true);
+      });
     });
+
+    // Pause on hover over insight box and resume on leave
+    if (boxEl) {
+      boxEl.addEventListener('mouseenter', stopTimer);
+      boxEl.addEventListener('mouseleave', startTimer);
+    }
+
+    // Start auto-rotation
+    startTimer();
   })();
 </script></main>
 
