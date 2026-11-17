@@ -312,6 +312,8 @@ const server = http.createServer((req, res) => {
   } else if (!path.posix.extname(reqPath)) {
     if (reqPath === '/projects' && fs.existsSync(path.join(PUBLIC_DIR, 'projects-showcase.html'))) {
       reqPath = '/projects-showcase.html';
+    } else if ((reqPath === '/privacy' || reqPath === '/privacy-policy') && fs.existsSync(path.join(PUBLIC_DIR, 'privacy-policy.html'))) {
+      reqPath = '/privacy-policy.html';
     } else if (fs.existsSync(path.join(PUBLIC_DIR, reqPath + '.html'))) {
       reqPath = reqPath + '.html';
     }
