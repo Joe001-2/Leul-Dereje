@@ -3,22 +3,32 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
-const PUBLIC_DIR = __dirname;
+const PUBLIC_DIR = path.resolve(__dirname);
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=UTF-8',
-  '.css': 'text/css',
-  '.js': 'application/javascript',
-  '.json': 'application/json',
+  '.css': 'text/css; charset=UTF-8',
+  '.js': 'application/javascript; charset=UTF-8',
+  '.json': 'application/json; charset=UTF-8',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
-  '.webp': 'image/webp'
+  '.webp': 'image/webp',
+  '.mp4': 'video/mp4'
 };
 
+function applySecurityHeaders(res) {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+}
+
 const server = http.createServer((req, res) => {
+  applySecurityHeaders(res);
+
   // Handle Consultation API
   if (req.method === 'POST' && req.url === '/api/consultation') {
     let body = '';
@@ -46,7 +56,21 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  let reqPath = decodeURI(req.url.split('?')[0]);
+  // Parse request path
+  const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+  let reqPath = decodeURI(parsedUrl.pathname);
+
+  // 1. Canonical Redirect: prevent "/index.html" in URL, redirect to clean root "/"
+  if (reqPath === '/index.html') {
+    const target = '/' + (parsedUrl.search || '');
+    res.writeHead(301, {
+      'Location': target,
+      'Cache-Control': 'public, max-age=3600'
+    });
+    return res.end();
+  }
+
+  // 2. Resolve Root and Clean URLs
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';
   } else if (!path.extname(reqPath)) {
@@ -55,22 +79,29 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  const filePath = path.join(PUBLIC_DIR, reqPath);
+  const filePath = path.resolve(PUBLIC_DIR, '.' + reqPath);
 
-  // Security check: ensure path stays within directory
+  // 3. Security check: prevent directory traversal attacks
   if (!filePath.startsWith(PUBLIC_DIR)) {
-    res.writeHead(403, { 'Content-Type': 'text/plain' });
+    res.writeHead(403, { 'Content-Type': 'text/plain; charset=UTF-8' });
     return res.end('403 Forbidden');
   }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.writeHead(404, { 'Content-Type': 'text/plain; charset=UTF-8' });
       return res.end('404 Not Found');
     }
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+
+    // Caching Strategy
+    if (ext === '.html') {
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    } else {
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+    }
 
     res.writeHead(200, { 'Content-Type': contentType });
     fs.createReadStream(filePath).pipe(res);
@@ -80,4 +111,3 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running at http://0.0.0.0:${PORT}/`);
 });
-
